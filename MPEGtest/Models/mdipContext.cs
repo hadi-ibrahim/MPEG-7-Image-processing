@@ -32,8 +32,7 @@ namespace MPEGtest.Models
         {
             modelBuilder.Entity<Agent>(entity =>
             {
-                entity.HasKey(e => new { e.Id });
-
+                entity.HasKey(e => new { e.Id});
                 entity.ToTable("agent");
 
                 entity.Property(e => e.Id).HasColumnName("id");
@@ -43,8 +42,6 @@ namespace MPEGtest.Models
                     .HasColumnName("name");
 
 
-                entity.HasMany(d => d.Mpegs)
-                    .WithMany(p => p.Agents);
 
             });
 
@@ -76,12 +73,13 @@ namespace MPEGtest.Models
                     .HasColumnName("relation");
 
                 entity.Property(e => e.Time)
-                    .HasColumnType("datetime")
+                    .HasMaxLength(60)
                     .HasColumnName("time");
 
+                entity.HasMany(d => d.Agents)
+                      .WithMany(p => p.Mpegs);
                 
 
-                
             });
 
 

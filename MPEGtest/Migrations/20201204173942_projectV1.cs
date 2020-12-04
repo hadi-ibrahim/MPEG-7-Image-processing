@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MPEGtest.Migrations
 {
@@ -30,7 +29,7 @@ namespace MPEGtest.Migrations
                     concept = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                     image = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     place = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
-                    time = table.Column<DateTime>(type: "datetime", nullable: true),
+                    time = table.Column<string>(type: "nvarchar(60)", maxLength: 60, nullable: true),
                     relation = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true)
                 },
                 constraints: table =>
