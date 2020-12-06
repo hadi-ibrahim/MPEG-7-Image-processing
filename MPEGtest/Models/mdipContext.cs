@@ -24,7 +24,7 @@ namespace MPEGtest.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=.\\SQLExpress;Database=mdip;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=DESKTOP-ESOB1IV\\SQLEXPRESS;Database=mdip;Trusted_Connection=True;");
             }
         }
 
