@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using MPEGtest.Common.Helpers;
 
 namespace MPEGtest
 {
@@ -15,22 +16,19 @@ namespace MPEGtest
             InitializeComponent();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void ExitButtonOnClick(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void AddNewImageButtonOnClick(object sender, EventArgs e)
         {
-            Form1 frame = new Form1();
-            frame.Show();
-
+            this.ReplaceView(new Form1());
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void SearchForImageButtonOnClick(object sender, EventArgs e)
         {
-            Form2 frame = new Form2();
-            frame.Show();
+            this.ReplaceView(new Form2());
         }
     }
 }

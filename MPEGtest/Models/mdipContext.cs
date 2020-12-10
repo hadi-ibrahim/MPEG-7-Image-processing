@@ -40,9 +40,6 @@ namespace MPEGtest.Models
                 entity.Property(e => e.Name)
                     .HasMaxLength(50)
                     .HasColumnName("name");
-
-
-
             });
 
             modelBuilder.Entity<Mpeg>(entity =>
