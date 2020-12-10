@@ -1,6 +1,6 @@
-﻿namespace MPEGtest
+﻿namespace MPEGtest.Views
 {
-    partial class Form2
+    partial class SearchImageView
     {
         /// <summary>
         /// Required designer variable.
@@ -239,7 +239,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.ConceptTxt);
             this.Controls.Add(this.panel1);
-            this.Name = "Form2";
+            this.Name = "SearchImageView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Search";
             this.panel1.ResumeLayout(false);

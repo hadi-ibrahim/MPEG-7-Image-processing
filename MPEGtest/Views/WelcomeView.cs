@@ -1,17 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using MPEGtest.Common.Helpers;
 
-namespace MPEGtest
+namespace MPEGtest.Views
 {
-    public partial class Form0 : Form
+    public partial class WelcomeView : Form
     {
-        public Form0()
+        public WelcomeView()
         {
             InitializeComponent();
         }
@@ -23,12 +18,12 @@ namespace MPEGtest
 
         private void AddNewImageButtonOnClick(object sender, EventArgs e)
         {
-            this.ReplaceView(new Form1());
+            this.ReplaceView(new UploadImageView());
         }
 
         private void SearchForImageButtonOnClick(object sender, EventArgs e)
         {
-            this.ReplaceView(new Form2());
+            this.ReplaceView(new SearchImageView());
         }
     }
 }

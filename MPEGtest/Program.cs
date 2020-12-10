@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Extensions.DependencyInjection;
+using MPEGtest.Views;
 
 
 namespace MPEGtest
@@ -18,7 +19,7 @@ namespace MPEGtest
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             MainAsync();
-            Application.Run(new Form0());
+            Application.Run(new WelcomeView());
         }
 
         static async Task MainAsync()

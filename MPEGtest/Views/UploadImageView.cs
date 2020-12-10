@@ -1,19 +1,18 @@
-﻿using MPEGtest.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using MPEGtest.Common.Helpers;
+using MPEGtest.Models;
 
-
-namespace MPEGtest
+namespace MPEGtest.Views
 {
-    public partial class Form1 : Form
+    public partial class UploadImageView : Form
     {
         public HashSet<Mpeg> mpegs { get; set; }
         private const string XmlPath = "../../../../test.xml";
         private const string ImgPath = "../../dog.JPG";
 
-        public Form1()
+        public UploadImageView()
         {
             InitializeComponent();
         }
@@ -68,7 +67,7 @@ namespace MPEGtest
         
         private void SearchHereButtonOnClick(object sender, EventArgs e)
         {
-            this.ReplaceView(new Form2());
+            this.ReplaceView(new SearchImageView());
 
         }
     }

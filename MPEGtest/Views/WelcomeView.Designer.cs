@@ -1,6 +1,6 @@
-﻿namespace MPEGtest
+﻿namespace MPEGtest.Views
 {
-    partial class Form0
+    partial class WelcomeView
     {
         /// <summary>
         /// Required designer variable.
@@ -71,7 +71,7 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Name = "Form0";
+            this.Name = "WelcomeView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
             this.ResumeLayout(false);

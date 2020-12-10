@@ -1,22 +1,19 @@
-﻿using MPEGtest.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using MPEGtest.Common.Helpers;
+using MPEGtest.Models;
 
-namespace MPEGtest
+namespace MPEGtest.Views
 {
-    public partial class Form2 : Form
+    public partial class SearchImageView : Form
     {
         public HashSet<Mpeg> mpegs { get; set; }
         private string xmlPath = "../../../../test.xml";
         private string imgPath = "../../dog.JPG";
 
-        public Form2()
+        public SearchImageView()
         {
             InitializeComponent();
             MpegManager manager = new MpegManager(xmlPath);
@@ -49,7 +46,7 @@ namespace MPEGtest
 
         private void BackButtonOnClick(object sender, EventArgs e)
         {
-            this.ReplaceView(new Form1());
+            this.ReplaceView(new UploadImageView());
         }
 
         private void ExitButtonOnClick(object sender, EventArgs e)
