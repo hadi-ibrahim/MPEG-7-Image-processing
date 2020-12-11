@@ -1,8 +1,10 @@
 using System;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Extensions.DependencyInjection;
+using MPEGtest.Common.Helpers;
+using MPEGtest.ImageFilters;
 using MPEGtest.Views;
+using MPEGtest.Views.ViewInterfaces;
 
 
 namespace MPEGtest
@@ -18,15 +20,21 @@ namespace MPEGtest
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            MainAsync();
-            Application.Run(new WelcomeView());
+            // Startup.ConfigureServices();
+            var serviceProvider = new ServiceCollection()
+                .AddLogging()
+                .AddTransient<IWelcomeView, WelcomeView>()
+                .AddTransient<ISearchImageView, SearchImageView>()
+                .AddTransient<IUploadImageView, UploadImageView>()
+                .AddSingleton<IImageHandler, ImageHandler>()
+                .BuildServiceProvider();
+            RoutingHelper.ServiceProvider = serviceProvider;
+            var welcomeView = serviceProvider.GetService<IWelcomeView>();
+            
+            Application.Run((Form) welcomeView);
+            
         }
 
-        static async Task MainAsync()
-        {
-            // Create service collection
-            ServiceCollection serviceCollection = new ServiceCollection();
-            Startup.ConfigureServices(serviceCollection);
-        }
+        
     }
 }

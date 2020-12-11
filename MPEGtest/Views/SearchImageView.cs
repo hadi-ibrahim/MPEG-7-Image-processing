@@ -4,10 +4,11 @@ using System.Drawing;
 using System.Windows.Forms;
 using MPEGtest.Common.Helpers;
 using MPEGtest.Models;
+using MPEGtest.Views.ViewInterfaces;
 
 namespace MPEGtest.Views
 {
-    public partial class SearchImageView : Form
+    public partial class SearchImageView : Form, ISearchImageView
     {
         public HashSet<Mpeg> mpegs { get; set; }
         private string xmlPath = "../../../../test.xml";
@@ -46,7 +47,7 @@ namespace MPEGtest.Views
 
         private void BackButtonOnClick(object sender, EventArgs e)
         {
-            this.ReplaceView(new UploadImageView());
+            this.ReplaceView<IUploadImageView>();
         }
 
         private void ExitButtonOnClick(object sender, EventArgs e)

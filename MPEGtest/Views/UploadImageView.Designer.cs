@@ -245,7 +245,7 @@
             this.panel1.Size = new System.Drawing.Size(638, 100);
             this.panel1.TabIndex = 12;
             // 
-            // Form1
+            // UploadImageView
             // 
             this.ClientSize = new System.Drawing.Size(662, 544);
             this.Controls.Add(this.button4);

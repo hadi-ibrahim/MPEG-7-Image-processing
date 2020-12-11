@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using MPEGtest.Common.Helpers;
 using MPEGtest.Models;
+using MPEGtest.Views.ViewInterfaces;
 
 namespace MPEGtest.Views
 {
-    public partial class UploadImageView : Form
+    public partial class UploadImageView : Form, IUploadImageView
     {
         public HashSet<Mpeg> mpegs { get; set; }
         private const string XmlPath = "../../../../test.xml";
@@ -67,8 +68,13 @@ namespace MPEGtest.Views
         
         private void SearchHereButtonOnClick(object sender, EventArgs e)
         {
-            this.ReplaceView(new SearchImageView());
+            this.ReplaceView<ISearchImageView>();
 
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            RoutingHelper.OpenAdditionalView<IImageFilterView>();
         }
     }
 }

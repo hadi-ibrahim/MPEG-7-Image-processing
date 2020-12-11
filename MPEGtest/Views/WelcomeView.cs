@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Windows.Forms;
 using MPEGtest.Common.Helpers;
+using MPEGtest.Views.ViewInterfaces;
 
 namespace MPEGtest.Views
 {
-    public partial class WelcomeView : Form
+    public partial class WelcomeView : Form, IWelcomeView
     {
         public WelcomeView()
         {
@@ -18,12 +19,12 @@ namespace MPEGtest.Views
 
         private void AddNewImageButtonOnClick(object sender, EventArgs e)
         {
-            this.ReplaceView(new UploadImageView());
+            this.ReplaceView<IUploadImageView>();
         }
 
         private void SearchForImageButtonOnClick(object sender, EventArgs e)
         {
-            this.ReplaceView(new SearchImageView());
+            this.ReplaceView<ISearchImageView>();
         }
     }
 }
