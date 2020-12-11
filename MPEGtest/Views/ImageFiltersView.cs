@@ -2,7 +2,6 @@
 using System.Drawing;
 using System.Windows.Forms;
 using MPEGtest.Common;
-using MPEGtest.Common.Helpers;
 using MPEGtest.ImageFilters;
 using MPEGtest.Views.ViewInterfaces;
 
@@ -12,14 +11,11 @@ namespace MPEGtest.Views
     {
         private Image _image;
         private IImageHandler _imageHandler;
-
- 
         public ImageFiltersView(IImageHandler imageHandler)
         {
             _imageHandler = imageHandler;
             SubscribeToImageChanges();
             InitializeComponent();
-            Console.WriteLine("I AM HEREEEEEE");
         }
 
         private void GaussianFilterButtonOnClick(object sender, EventArgs e)

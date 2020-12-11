@@ -21,20 +21,21 @@ namespace MPEGtest
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             // Startup.ConfigureServices();
-            var serviceProvider = new ServiceCollection()
+            var serviceProvider = ConfigureServices();
+            RoutingHelper.ServiceProvider = serviceProvider;
+            Application.Run(serviceProvider.GetService<IWelcomeView>() as Form);
+        }
+
+
+        static ServiceProvider ConfigureServices()
+        {
+            return new ServiceCollection()
                 .AddLogging()
                 .AddTransient<IWelcomeView, WelcomeView>()
                 .AddTransient<ISearchImageView, SearchImageView>()
                 .AddTransient<IUploadImageView, UploadImageView>()
                 .AddSingleton<IImageHandler, ImageHandler>()
                 .BuildServiceProvider();
-            RoutingHelper.ServiceProvider = serviceProvider;
-            var welcomeView = serviceProvider.GetService<IWelcomeView>();
-            
-            Application.Run((Form) welcomeView);
-            
         }
-
-        
     }
 }
