@@ -7,9 +7,27 @@ namespace MPEGtest.ImageFilters
 {
     public class ImageHandler : IImageHandler
     {
-        private Image _image { get; set; }
+        private const string CurrentImageFileName = "Current";
+        private const string TempImageFileName = "Temp";
+        private const string ImagePath = "../../../wwwroot/";
         private List<IImageObserver> _imageFilters = new List<IImageObserver>();
 
+
+        private void SaveImage(string imagePath)
+        {
+            // load an image
+            Bitmap image = (Bitmap) Bitmap.FromFile(imagePath);
+            //save Image to temp path
+            image.Save(ImagePath + CurrentImageFileName);
+        }
+
+        private void SaveTempImage()
+        {
+            // load an image
+            Bitmap image = (Bitmap) Bitmap.FromFile(ImagePath + CurrentImageFileName);
+            //save Image to temp path
+            image.Save(ImagePath + TempImageFileName);
+        }
 
         public bool SubscribeObserver(IImageObserver imageObserver)
         {
@@ -43,13 +61,21 @@ namespace MPEGtest.ImageFilters
         {
             foreach (var filter in _imageFilters)
             {
-                filter.ReceiveImageUpdates(_image);
+                filter.ReceiveImageUpdates(ImagePath + CurrentImageFileName);
             }
         }
 
-        public void UpdateImage(Image image)
+        public void UpdateImage(string imagePath, bool temporary = false)
         {
-            _image = image;
+            if (temporary)
+            {
+                SaveTempImage();
+            }
+            else
+            {
+                SaveImage(imagePath);
+            }
+
             NotifyObservers();
         }
     }

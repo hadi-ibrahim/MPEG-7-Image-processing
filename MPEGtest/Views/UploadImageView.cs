@@ -1,52 +1,55 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using MPEGtest.Common;
 using MPEGtest.Common.Helpers;
+using MPEGtest.ImageFilters;
 using MPEGtest.Models;
 using MPEGtest.Views.ViewInterfaces;
 
 namespace MPEGtest.Views
 {
-    public partial class UploadImageView : Form, IUploadImageView
+    public partial class UploadImageView : Form, IUploadImageView, IImageObserver
     {
         public HashSet<Mpeg> mpegs { get; set; }
-        private const string XmlPath = "../../../../test.xml";
-        private const string ImgPath = "../../dog.JPG";
+        private const string XmlPath = "../../test.xml";
+        private string _imagePath;
+        private IImageHandler _imageHandler;
+        private IUploadImageView _uploadImageViewImplementation;
 
-        public UploadImageView()
+        public UploadImageView(IImageHandler imageHandler)
         {
+            _imageHandler = imageHandler;
+            SubscribeToImageChanges();
             InitializeComponent();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
         }
-        
 
-        private void UploadButtonOnClick(object sender, EventArgs e)
+
+        private void BrowseButtonOnClick(object sender, EventArgs e)
         {
             try
             {
                 OpenFileDialog dialog = new OpenFileDialog();
                 dialog.Filter = "jpg files(*.jpg)|*.jpg| PNG files(*.png)| All Files(*.*)|*.*|";
-                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                {
-                    String imageLocation = dialog.FileName;
-                    pictureBox1.ImageLocation = imageLocation;
-                    ImageTxt.Text = imageLocation;
-                }
+                if (dialog.ShowDialog() != System.Windows.Forms.DialogResult.OK) return;
+                PublishImageUpdate(dialog.FileName);
             }
             catch (Exception)
             {
                 MessageBox.Show("an error occured", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private void ExitButtonOnClick(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void InsertButtonOnClick(object sender, EventArgs e)
+        private void UploadButtonOnClick(object sender, EventArgs e)
         {
             MpegManager manager = new MpegManager(XmlPath);
 
@@ -54,27 +57,63 @@ namespace MPEGtest.Views
             String Event = EventTxt.Text;
             String Place = PlaceTxt.Text;
             String Time = TimeTxt.Text;
-            String ImagePath = ImageTxt.Text;
             String agent = AgentTxt.Text;
             String Relation = RelationTxt.Text;
 
             HashSet<Agent> agents = new HashSet<Agent> {new Agent(agent)};
-            string encodedImage = manager.GetBase64StringFromImage(ImagePath);
+            string encodedImage = manager.GetBase64StringFromImage(_imagePath);
             Mpeg mpeg = new Mpeg(Event, Concept, encodedImage, Place, Time, Relation, agents);
             manager.AddMpegToXml(mpeg);
 
-            // manager.MigrateXmlToDb();
+            // manager.MigrateXmlToDb();        
         }
-        
+
         private void SearchHereButtonOnClick(object sender, EventArgs e)
         {
             this.ReplaceView<ISearchImageView>();
-
+            UnSubscribeToImageChanges();
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void OpenFiltersButtonClick(object sender, EventArgs e)
         {
             RoutingHelper.OpenAdditionalView<IImageFilterView>();
         }
+
+        public void PublishImageUpdate(string imagePath)
+        {
+            _imageHandler.UpdateImage(imagePath);
+        }
+
+        public void ReceiveImageUpdates(string imagePath)
+        {
+            _imagePath = imagePath;
+            showImageOnPanel();
+        }
+
+        private void showImageOnPanel()
+        {
+            Console.WriteLine("showing image on panel");
+            Console.WriteLine("From path {0}", _imagePath);
+            pictureBox1.ImageLocation = _imagePath;
+        }
+
+        public void SubscribeToImageChanges()
+        {
+            if (!_imageHandler.SubscribeObserver(this))
+            {
+                MessageBox.Show("Something went bad :( Please contact you IT person", "Internal Server Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void UnSubscribeToImageChanges()
+        {
+            if (!_imageHandler.UnSubscribeObserver(this))
+            {
+                MessageBox.Show("Something went bad :( Please contact you IT person", "Internal Server Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
     }
 }

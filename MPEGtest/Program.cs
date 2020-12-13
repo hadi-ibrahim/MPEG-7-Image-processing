@@ -20,7 +20,7 @@ namespace MPEGtest
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            // Startup.ConfigureServices();
+            // Application.Run(new UploadImageView());
             var serviceProvider = ConfigureServices();
             RoutingHelper.ServiceProvider = serviceProvider;
             Application.Run(serviceProvider.GetService<IWelcomeView>() as Form);
@@ -34,6 +34,7 @@ namespace MPEGtest
                 .AddTransient<IWelcomeView, WelcomeView>()
                 .AddTransient<ISearchImageView, SearchImageView>()
                 .AddTransient<IUploadImageView, UploadImageView>()
+                .AddTransient<IImageFilterView, ImageFiltersView>()
                 .AddSingleton<IImageHandler, ImageHandler>()
                 .BuildServiceProvider();
         }

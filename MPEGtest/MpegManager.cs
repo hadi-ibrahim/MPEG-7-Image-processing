@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Xml.Linq;
 using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace MPEGtest
 {
@@ -65,7 +66,12 @@ namespace MPEGtest
         public void AddMpegToXml(Mpeg mpeg)
         {
             var mpegs = DeserializeMpegsFromXmlFile();
+            Console.WriteLine("mpeg");
+            Console.WriteLine(mpeg);
+            
             mpegs.Add(mpeg);
+            Console.WriteLine("mpegs");
+            Console.WriteLine(mpegs);
             SerializeMpegsToXmlFile(mpegs);
         }
 

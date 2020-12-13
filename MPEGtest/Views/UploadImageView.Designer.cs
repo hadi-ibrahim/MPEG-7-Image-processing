@@ -41,8 +41,6 @@
             this.TimeTxt = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.ImageTxt = new System.Windows.Forms.TextBox();
             this.AgentTxt = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.RelationTxt = new System.Windows.Forms.TextBox();
@@ -50,19 +48,20 @@
             this.button4 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(45, 415);
+            this.button2.Location = new System.Drawing.Point(45, 400);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 30);
             this.button2.TabIndex = 1;
             this.button2.Text = "Browse";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.UploadButtonOnClick);
+            this.button2.Click += new System.EventHandler(this.BrowseButtonOnClick);
             // 
             // pictureBox1
             // 
@@ -165,23 +164,7 @@
             this.button3.TabIndex = 14;
             this.button3.Text = "Upload Image";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.InsertButtonOnClick);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(123, 409);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(61, 13);
-            this.label8.TabIndex = 16;
-            this.label8.Text = "Image Path";
-            // 
-            // ImageTxt
-            // 
-            this.ImageTxt.Location = new System.Drawing.Point(123, 425);
-            this.ImageTxt.Name = "ImageTxt";
-            this.ImageTxt.Size = new System.Drawing.Size(202, 20);
-            this.ImageTxt.TabIndex = 17;
+            this.button3.Click += new System.EventHandler(this.UploadButtonOnClick);
             // 
             // AgentTxt
             // 
@@ -245,16 +228,26 @@
             this.panel1.Size = new System.Drawing.Size(638, 100);
             this.panel1.TabIndex = 12;
             // 
+            // button5
+            // 
+            this.button5.Cursor = System.Windows.Forms.Cursors.Default;
+            this.button5.Location = new System.Drawing.Point(142, 400);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 30);
+            this.button5.TabIndex = 23;
+            this.button5.Text = "Open filters";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.OpenFiltersButtonClick);
+            // 
             // UploadImageView
             // 
             this.ClientSize = new System.Drawing.Size(662, 544);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.RelationTxt);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.AgentTxt);
-            this.Controls.Add(this.ImageTxt);
-            this.Controls.Add(this.label8);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.panel1);
@@ -280,6 +273,8 @@
             this.PerformLayout();
         }
 
+        private System.Windows.Forms.Button button5;
+
         #endregion
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -296,8 +291,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox ImageTxt;
         private System.Windows.Forms.TextBox AgentTxt;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBox7;

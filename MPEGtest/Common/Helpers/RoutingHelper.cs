@@ -18,10 +18,12 @@ namespace MPEGtest.Common.Helpers
             newForm.Show();
         }
 
-        public static void OpenAdditionalView<T>()
+        public static T OpenAdditionalView<T>()
         {
-            var newForm = ServiceProvider.GetService<T>() as Form;
-            newForm?.Show();
+            var newForm = (IForm) ServiceProvider.GetService<T>() ;
+            newForm.Show();
+            return (T) newForm;
         }
     }
 }
+

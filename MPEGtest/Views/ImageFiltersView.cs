@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using System.Windows.Forms;
 using MPEGtest.Common;
 using MPEGtest.ImageFilters;
@@ -7,45 +6,52 @@ using MPEGtest.Views.ViewInterfaces;
 
 namespace MPEGtest.Views
 {
-    public partial class ImageFiltersView : Form, IImageFilter, IImageObserver, IImageFilterView
+    public partial class ImageFiltersView : Form, IImageObserver, IImageFilterView
     {
-        private Image _image;
-        private IImageHandler _imageHandler;
+        public string ImagePath { get; set; }
+        private readonly IImageHandler _imageHandler;
+
         public ImageFiltersView(IImageHandler imageHandler)
         {
             _imageHandler = imageHandler;
             SubscribeToImageChanges();
             InitializeComponent();
         }
+        
+        
 
-        private void GaussianFilterButtonOnClick(object sender, EventArgs e)
+        public void PublishImageUpdate(string imagePath)
         {
-            // RoutingHelper.OpenAdditionalView();
+            _imageHandler.UpdateImage(imagePath);
         }
 
-        public void ProcessImage(Image image)
+        public void ReceiveImageUpdates(string imagePath)
         {
-            throw new NotImplementedException();
+            ImagePath = imagePath;
         }
 
-        public void PublishImageUpdate(Image image)
+        public void SubscribeToImageChanges()
         {
-            _imageHandler.UpdateImage(image);
+            if (!_imageHandler.SubscribeObserver(this))
+            {
+                MessageBox.Show("Something went bad :( Please contact you IT person", "Internal Server Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        public void ReceiveImageUpdates(Image image)
+        public void UnSubscribeToImageChanges()
         {
-            _image = image;
+            if (!_imageHandler.UnSubscribeObserver(this))
+            {
+                MessageBox.Show("Something went bad :( Please contact you IT person", "Internal Server Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        public bool SubscribeToImageChanges()
-        {
-            return _imageHandler.SubscribeObserver(this);
-        }
 
-        public bool UnSubscribeToImageChanges()
+        private void medianButton_Click(object sender, EventArgs e)
         {
-            return _imageHandler.UnSubscribeObserver(this);
+            // RoutingHelper.OpenAdditionalView<>()
         }
     }
 }

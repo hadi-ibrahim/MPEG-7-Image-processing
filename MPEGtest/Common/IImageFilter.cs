@@ -4,6 +4,8 @@ namespace MPEGtest.Common
 {
     public interface IImageFilter
     {
-        public abstract void ProcessImage(Image image);
-    }
+        public void DiscardChanges();
+        public void PreviewFilter();
+        public void ApplyFilter();
+    }    
 }
