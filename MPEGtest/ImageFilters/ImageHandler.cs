@@ -7,11 +7,20 @@ namespace MPEGtest.ImageFilters
 {
     public class ImageHandler : IImageHandler
     {
-        private const string CurrentImageFileName = "Current";
+        private const string CurrentImageFileName = "Original";
         private const string TempImageFileName = "Temp";
         private const string ImagePath = "../../../wwwroot/";
         private List<IImageObserver> _imageFilters = new List<IImageObserver>();
 
+        public Bitmap GetBitmapImage()
+        {
+            return Bitmap.FromFile(ImagePath + CurrentImageFileName) as Bitmap;
+        }
+
+        public Bitmap GetTempBitmapImage()
+        {
+            throw new NotImplementedException();
+        }
 
         private void SaveImage(string imagePath)
         {
