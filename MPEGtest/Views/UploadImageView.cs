@@ -2,19 +2,16 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-using Microsoft.Extensions.Hosting.Internal;
 using MPEGtest.Common;
 using MPEGtest.Common.Helpers;
 using MPEGtest.ImageFilters;
 using MPEGtest.Models;
 using MPEGtest.Views.ViewInterfaces;
-using Image = AForge.Imaging.Image;
 
 namespace MPEGtest.Views
 {
     public partial class UploadImageView : Form, IUploadImageView, IImageObserver
     {
-        public HashSet<Mpeg> mpegs { get; set; }
         private const string XmlPath = "../../test.xml";
         private IImageHandler _imageHandler;
         private IUploadImageView _uploadImageViewImplementation;

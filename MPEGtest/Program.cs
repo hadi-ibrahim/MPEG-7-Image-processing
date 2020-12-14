@@ -1,11 +1,8 @@
 using System;
 using System.Windows.Forms;
 using Microsoft.Extensions.DependencyInjection;
-using MPEGtest.Common;
 using MPEGtest.Common.Helpers;
 using MPEGtest.ImageFilters;
-using MPEGtest.ImageFilters.Filters;
-using MPEGtest.ImageFilters.Filters.Interfaces;
 using MPEGtest.Views;
 using MPEGtest.Views.SingleFiltersView;
 using MPEGtest.Views.ViewInterfaces;

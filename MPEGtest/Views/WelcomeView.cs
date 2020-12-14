@@ -14,7 +14,7 @@ namespace MPEGtest.Views
 
         private void ExitButtonOnClick(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void AddNewImageButtonOnClick(object sender, EventArgs e)

@@ -10,9 +10,7 @@ namespace MPEGtest.Views
 {
     public partial class SearchImageView : Form, ISearchImageView
     {
-        public HashSet<Mpeg> mpegs { get; set; }
         private string xmlPath = "../../test.xml";
-        private string imgPath = "../../dog.JPG";
 
         public SearchImageView()
         {

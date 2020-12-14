@@ -1,6 +1,4 @@
-﻿using System;
-using System.Runtime.CompilerServices;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 using Microsoft.Extensions.DependencyInjection;
 using MPEGtest.Views.ViewInterfaces;
 
@@ -21,14 +19,15 @@ namespace MPEGtest.Common.Helpers
         public static T OpenAdditionalView<T>()
         {
             var newForm = (IForm) ServiceProvider.GetService<T>() ;
-            newForm.Show();
+            newForm?.Show();
             return (T) newForm;
+
         }
         
         public static T OpenDialogView<T>()
         {
             var newForm = (IForm) ServiceProvider.GetService<T>() ;
-            newForm.ShowDialog();
+            newForm?.ShowDialog();
             return (T) newForm;
         }
     }
