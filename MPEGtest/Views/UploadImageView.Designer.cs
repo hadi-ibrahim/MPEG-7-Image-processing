@@ -223,7 +223,7 @@
             this.button5.Cursor = System.Windows.Forms.Cursors.Default;
             this.button5.Location = new System.Drawing.Point(142, 400);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 30);
+            this.button5.Size = new System.Drawing.Size(102, 30);
             this.button5.TabIndex = 23;
             this.button5.Text = "Open filters";
             this.button5.UseVisualStyleBackColor = true;
@@ -239,7 +239,7 @@
             // 
             // UploadImageView
             // 
-            this.ClientSize = new System.Drawing.Size(662, 544);
+            this.ClientSize = new System.Drawing.Size(732, 544);
             this.Controls.Add(this.imagePanel);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
