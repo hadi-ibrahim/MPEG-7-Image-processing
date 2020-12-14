@@ -35,7 +35,13 @@
     <Compile Update="Views\ImageFiltersView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Views\SingleFiltersView\SingleFilterViewView.cs">
+    <Compile Update="Views\SingleFiltersView\SingleFilterView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\SingleFiltersView\MedianFilterView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\SingleFiltersView\GaussianFilterView.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

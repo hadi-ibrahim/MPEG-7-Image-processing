@@ -2,7 +2,7 @@
 
 namespace MPEGtest.Views.SingleFiltersView
 {
-    partial class SingleFilterViewView
+    partial class SingleFilterView
     {
         /// <summary>
         /// Required designer variable.

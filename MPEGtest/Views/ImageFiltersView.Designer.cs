@@ -56,6 +56,8 @@ namespace MPEGtest.Views
             this.gaussianButton.TabIndex = 1;
             this.gaussianButton.Text = "Gaussian";
             this.gaussianButton.UseVisualStyleBackColor = true;
+            this.gaussianButton.Click += new System.EventHandler(this.gaussianButton_Click);
+
             // 
             // label1
             // 

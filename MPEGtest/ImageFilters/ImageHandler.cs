@@ -1,42 +1,66 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using MPEGtest.Common;
 
 namespace MPEGtest.ImageFilters
 {
     public class ImageHandler : IImageHandler
     {
-        private const string CurrentImageFileName = "Original";
+        private static string CurrentImageFileName = "Original";
         private const string TempImageFileName = "Temp";
         private const string ImagePath = "../../../wwwroot/";
         private List<IImageObserver> _imageFilters = new List<IImageObserver>();
 
+
+        public void UpdateImage(Bitmap newImage, bool temporary = false)
+        {
+            SaveImage(newImage, temporary, true);
+        }
+
+        private void DeleteFileIfExists()
+        {
+            Console.WriteLine("Searching for File {0}", Path.Combine(ImagePath, CurrentImageFileName));
+            if (File.Exists(Path.Combine(ImagePath, CurrentImageFileName)))
+            {
+                File.Delete(Path.Combine(ImagePath, CurrentImageFileName));
+                Console.WriteLine("File deleted.");
+            }
+            else Console.WriteLine("File not found");
+        }
+
+        private void SaveImage(Bitmap image, bool temporary, bool testing = false)
+        {
+            // CurrentImageFileName += new Guid().ToString();
+            // if (isUpdate) {UpdateImageByPath(""); NotifyObservers(true);}
+            var savingPath = ImagePath + (temporary ? TempImageFileName : CurrentImageFileName);
+            // NotifyObservers(true);
+            // if (testing)
+            // {
+            //     savingPath = ImagePath + "GUI";
+            //     image.Save(savingPath);
+            //     UpdateImageByPath(savingPath);
+            //     return;
+            // }
+
+
+            // image.Save(savingPath);
+            NotifyObservers(image);
+
+            // DeleteFileIfExists();
+        }
+
         public Bitmap GetBitmapImage()
         {
-            return Bitmap.FromFile(ImagePath + CurrentImageFileName) as Bitmap;
+            return Image.FromFile(ImagePath + CurrentImageFileName) as Bitmap;
         }
 
         public Bitmap GetTempBitmapImage()
         {
-            throw new NotImplementedException();
+            return Image.FromFile(ImagePath + TempImageFileName) as Bitmap;
         }
 
-        private void SaveImage(string imagePath)
-        {
-            // load an image
-            Bitmap image = (Bitmap) Bitmap.FromFile(imagePath);
-            //save Image to temp path
-            image.Save(ImagePath + CurrentImageFileName);
-        }
-
-        private void SaveTempImage()
-        {
-            // load an image
-            Bitmap image = (Bitmap) Bitmap.FromFile(ImagePath + CurrentImageFileName);
-            //save Image to temp path
-            image.Save(ImagePath + TempImageFileName);
-        }
 
         public bool SubscribeObserver(IImageObserver imageObserver)
         {
@@ -66,26 +90,22 @@ namespace MPEGtest.ImageFilters
             return true;
         }
 
-        private void NotifyObservers()
+        private void NotifyObservers(Bitmap image, bool empty = false)
         {
             foreach (var filter in _imageFilters)
             {
-                filter.ReceiveImageUpdates(ImagePath + CurrentImageFileName);
+                filter.ReceiveImageUpdates(image);
+                // filter.ReceiveImageUpdates(empty ? "" : ImagePath + CurrentImageFileName);
             }
         }
 
-        public void UpdateImage(string imagePath, bool temporary = false)
+        public void UpdateImageByPath(string newImagePath, bool temporary = false)
         {
-            if (temporary)
-            {
-                SaveTempImage();
-            }
-            else
-            {
-                SaveImage(imagePath);
-            }
+            // load an image
 
-            NotifyObservers();
+            Bitmap image = (Bitmap) Image.FromFile(newImagePath);
+            //save Image to new path
+            SaveImage(image, temporary);
         }
     }
 }

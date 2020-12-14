@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 using MPEGtest.Common;
 using MPEGtest.Common.Helpers;
 using MPEGtest.ImageFilters;
 using MPEGtest.Models;
 using MPEGtest.Views.ViewInterfaces;
+using Image = AForge.Imaging.Image;
 
 namespace MPEGtest.Views
 {
@@ -81,20 +83,22 @@ namespace MPEGtest.Views
 
         public void PublishImageUpdate(string imagePath)
         {
-            _imageHandler.UpdateImage(imagePath);
+            _imageHandler.UpdateImageByPath(imagePath);
         }
 
-        public void ReceiveImageUpdates(string imagePath)
+        public void ReceiveImageUpdates(Bitmap image)
         {
-            _imagePath = imagePath;
-            showImageOnPanel();
+            // _imagePath = imagePath;
+            showImageOnPanel(image);
         }
 
-        private void showImageOnPanel()
+        private void showImageOnPanel(Bitmap image)
         {
             Console.WriteLine("showing image on panel");
             Console.WriteLine("From path {0}", _imagePath);
-            pictureBox1.ImageLocation = _imagePath;
+            // Bitmap image = Image.FromFile(_imagePath);
+            ImageLabel.Image = image;
+            // pictureBox1.ImageLocation = _imagePath;
         }
 
         public void SubscribeToImageChanges()
@@ -114,6 +118,5 @@ namespace MPEGtest.Views
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
     }
 }

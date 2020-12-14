@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 using MPEGtest.Common;
 using MPEGtest.Common.Helpers;
 using MPEGtest.ImageFilters;
-using MPEGtest.ImageFilters.Filters;
 using MPEGtest.Models;
+using MPEGtest.Views.SingleFiltersView;
 using MPEGtest.Views.ViewInterfaces;
 
 namespace MPEGtest.Views
@@ -33,12 +34,12 @@ namespace MPEGtest.Views
 
         public void PublishImageUpdate(string imagePath)
         {
-            _imageHandler.UpdateImage(imagePath);
+            _imageHandler.UpdateImageByPath(imagePath);
         }
 
-        public void ReceiveImageUpdates(string imagePath)
+        public void ReceiveImageUpdates(Bitmap imagePath)
         {
-            ImagePath = imagePath;
+            // ImagePath = imagePath;
         }
 
         public void SubscribeToImageChanges()
@@ -62,17 +63,26 @@ namespace MPEGtest.Views
 
         private void medianButton_Click(object sender, EventArgs e)
         {
-            GetFilterView().SetupInputComponents(new SingleFilterConfiguration()
-            {
-                FrameName = "Median Filter",
-                SliderConfig = DefaultConfig,
-                Filter = new GaussianFilter();
-            });
+            var median = new MedianFilterView(_imageHandler);
+            median.Show();
+            // GetFilterView().SetupInputComponents(new SingleFilterConfiguration()
+            // {
+            //     FrameName = "Median Filter",
+            //     SliderConfig = DefaultConfig,
+            //     Filter = RoutingHelper.OpenAdditionalView<IMedianFilter>(),
+            // });
         }
 
         private ISingleFilterView GetFilterView()
         {
             return RoutingHelper.OpenAdditionalView<ISingleFilterView>();
+        }
+
+        private void gaussianButton_Click(object sender, EventArgs e)
+        {
+
+                var gaussian = new GaussianFilterView(_imageHandler);
+                gaussian.Show();
         }
     }
 }

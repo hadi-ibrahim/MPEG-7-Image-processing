@@ -7,9 +7,9 @@ namespace MPEGtest.ImageFilters
     {
         public bool SubscribeObserver(IImageObserver imageObserver);
         public bool UnSubscribeObserver(IImageObserver imageObserver);
-        public void UpdateImage(string imagePath, bool temporary= false);
+        public void UpdateImageByPath(string imagePath, bool temporary = false);
+        public void UpdateImage(Bitmap newImage, bool temporary = false);
         public Bitmap GetBitmapImage();
         public Bitmap GetTempBitmapImage();
-        
     }
 }

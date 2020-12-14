@@ -1,18 +1,22 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using MPEGtest.Common;
+using MPEGtest.ImageFilters;
 using MPEGtest.Models;
+using MPEGtest.Views.ViewInterfaces;
 
 namespace MPEGtest.Views.SingleFiltersView
 {
-    public partial class SingleFilterViewView : Form, ISingleFilterView
+    public partial class SingleFilterView : Form, ISingleFilterView
     {
-        public SingleFilterViewView()
+        private IImageHandler _imageHandler;
+        public SingleFilterView(IImageHandler imageHandler)
         {
+            _imageHandler = imageHandler;
             InitializeComponent();
             discardButton.Enabled = false;
         }
-
 
         public void DiscardChanges()
         {
@@ -21,7 +25,7 @@ namespace MPEGtest.Views.SingleFiltersView
 
         public void PreviewFilter()
         {
-            
+            // _imageHandler.UpdateImageByPath(_imageHandler.GetTempBitmapImage().ApplyMedianFilter()));
         }
 
         public void ApplyFilter()

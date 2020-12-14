@@ -6,7 +6,7 @@ namespace MPEGtest.Common
     public interface IImageObserver
     {
         public void PublishImageUpdate(string imagePath);
-        public void ReceiveImageUpdates(string imagePath);
+        public void ReceiveImageUpdates(Bitmap image);
         public void SubscribeToImageChanges();
         public void UnSubscribeToImageChanges();
     }
