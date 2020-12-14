@@ -17,6 +17,9 @@ namespace MPEGtest.Views
         public string ImagePath { get; set; }
         private readonly IImageHandler _imageHandler;
 
+        private string _sourcePixelFormatExceptionMessage =
+            "Type not Supported, try to upload the image again and run this filter first or try applying some other filters first";
+
         public readonly InputConfig DefaultConfig = new InputConfig()
         {
             Show = true,
@@ -60,7 +63,7 @@ namespace MPEGtest.Views
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        
+
         private void ShowErrorMessage(string message = "Something went bad :( Please contact you IT person")
         {
             MessageBox.Show(message, "Internal Server Error",
@@ -77,7 +80,7 @@ namespace MPEGtest.Views
                 .Start();
             inputView.Dispose();
         }
-        
+
 
         private void gaussianButton_Click(object sender, EventArgs e)
         {
@@ -92,8 +95,7 @@ namespace MPEGtest.Views
                     }
                     catch (Exception exception)
                     {
-                        ShowErrorMessage(
-                            "Type not Supported, Please try to upload the image again and run this filter first");
+                        ShowErrorMessage(_sourcePixelFormatExceptionMessage);
                     }
                 })
                 .Start();
@@ -112,8 +114,7 @@ namespace MPEGtest.Views
                     }
                     catch (Exception exception)
                     {
-                        ShowErrorMessage(
-                            "Type not Supported, Please try to upload the image again and run this filter first");
+                        ShowErrorMessage(_sourcePixelFormatExceptionMessage);
                     }
                 })
                 .Start();
@@ -132,8 +133,8 @@ namespace MPEGtest.Views
                     }
                     catch (Exception exception)
                     {
-                        ShowErrorMessage(
-                            "Type not Supported, Please try to upload the image again and run this filter first");
+                        Console.WriteLine(exception);
+                        ShowErrorMessage(_sourcePixelFormatExceptionMessage);
                     }
                 })
                 .Start();
@@ -152,8 +153,8 @@ namespace MPEGtest.Views
                     }
                     catch (Exception exception)
                     {
-                        ShowErrorMessage(
-                            "Type not Supported, Please try to upload the image again and run this filter first");
+                        Console.WriteLine(exception);
+                        ShowErrorMessage(_sourcePixelFormatExceptionMessage);
                     }
                 })
                 .Start();
@@ -172,8 +173,8 @@ namespace MPEGtest.Views
                     }
                     catch (Exception exception)
                     {
-                        ShowErrorMessage(
-                            "Type not Supported, Please try to upload the image again and run this filter first");
+                        Console.WriteLine(exception);
+                        ShowErrorMessage(_sourcePixelFormatExceptionMessage);
                     }
                 })
                 .Start();
@@ -195,16 +196,14 @@ namespace MPEGtest.Views
                     }
                     catch (Exception exception)
                     {
-                        ShowErrorMessage(
-                            "Type not Supported, Please try to upload the image again and run this filter first");
+                        Console.WriteLine(exception);
+                        ShowErrorMessage(_sourcePixelFormatExceptionMessage);
                     }
                 })
                 .Start();
             inputView.Dispose();
         }
 
-
-    
 
         private void sobelEdgeDetectionButton_Click(object sender, EventArgs e)
         {
@@ -218,15 +217,15 @@ namespace MPEGtest.Views
                     }
                     catch (Exception exception)
                     {
-                        ShowErrorMessage(
-                            "Type not Supported, Please try to upload the image again and run this filter first");
+                        Console.WriteLine(exception);
+                        ShowErrorMessage(_sourcePixelFormatExceptionMessage);
                     }
                 })
                 .Start();
             inputView.Dispose();
         }
 
-        private void laplacienEdgeDetectionButton_Click(object sender, EventArgs e)
+        private void laplacianEdgeDetectionButton_Click(object sender, EventArgs e)
         {
             var inputView = RoutingHelper.OpenDialogView<IConfirmationForm>();
             if (inputView.DialogResult != DialogResult.OK) return;
@@ -238,8 +237,8 @@ namespace MPEGtest.Views
                     }
                     catch (Exception exception)
                     {
-                        ShowErrorMessage(
-                            "Type not Supported, Please try to upload the image again and run this filter first");
+                        Console.WriteLine(exception);
+                        ShowErrorMessage(_sourcePixelFormatExceptionMessage);
                     }
                 })
                 .Start();

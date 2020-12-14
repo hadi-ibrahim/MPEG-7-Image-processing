@@ -40,7 +40,7 @@ namespace MPEGtest.Views
             this.hSLButton = new System.Windows.Forms.Button();
             this.grayScaleButton = new System.Windows.Forms.Button();
             this.sobelEdgeDetectionButton = new System.Windows.Forms.Button();
-            this.laplacienEdgeDetectionButton = new System.Windows.Forms.Button();
+            this.laplacianEdgeDetectionButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // medianButton
@@ -133,22 +133,22 @@ namespace MPEGtest.Views
             this.sobelEdgeDetectionButton.UseVisualStyleBackColor = true;
             this.sobelEdgeDetectionButton.Click += new System.EventHandler(this.sobelEdgeDetectionButton_Click);
             // 
-            // laplacienEdgeDetectionButton
+            // laplacianEdgeDetectionButton
             // 
-            this.laplacienEdgeDetectionButton.Location = new System.Drawing.Point(18, 161);
-            this.laplacienEdgeDetectionButton.Name = "laplacienEdgeDetectionButton";
-            this.laplacienEdgeDetectionButton.Size = new System.Drawing.Size(80, 34);
-            this.laplacienEdgeDetectionButton.TabIndex = 9;
-            this.laplacienEdgeDetectionButton.Text = "Laplacien Edge Detection";
-            this.laplacienEdgeDetectionButton.UseVisualStyleBackColor = true;
-            this.laplacienEdgeDetectionButton.Click += new System.EventHandler(this.laplacienEdgeDetectionButton_Click);
+            this.laplacianEdgeDetectionButton.Location = new System.Drawing.Point(18, 161);
+            this.laplacianEdgeDetectionButton.Name = "laplacianEdgeDetectionButton";
+            this.laplacianEdgeDetectionButton.Size = new System.Drawing.Size(80, 34);
+            this.laplacianEdgeDetectionButton.TabIndex = 9;
+            this.laplacianEdgeDetectionButton.Text = "Laplacian Edge Detection";
+            this.laplacianEdgeDetectionButton.UseVisualStyleBackColor = true;
+            this.laplacianEdgeDetectionButton.Click += new System.EventHandler(this.laplacianEdgeDetectionButton_Click);
             // 
             // ImageFiltersView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(372, 226);
-            this.Controls.Add(this.laplacienEdgeDetectionButton);
+            this.Controls.Add(this.laplacianEdgeDetectionButton);
             this.Controls.Add(this.sobelEdgeDetectionButton);
             this.Controls.Add(this.grayScaleButton);
             this.Controls.Add(this.hSLButton);
@@ -164,7 +164,7 @@ namespace MPEGtest.Views
             this.ResumeLayout(false);
         }
 
-        private System.Windows.Forms.Button laplacienEdgeDetectionButton;
+        private System.Windows.Forms.Button laplacianEdgeDetectionButton;
 
         private System.Windows.Forms.Button sobelEdgeDetectionButton;
 

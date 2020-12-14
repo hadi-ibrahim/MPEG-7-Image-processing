@@ -17,7 +17,7 @@ namespace MPEGtest.Views
             InitializeComponent();
             MpegManager manager = new MpegManager(xmlPath);
         }
-        
+
 
         private void SearchButtonOnClick(object sender, EventArgs e)
         {
@@ -31,15 +31,14 @@ namespace MPEGtest.Views
             var Relation = RelationTxt.Text ?? "";
 
 
-            HashSet<Agent> agents = new HashSet<Agent> { new Agent(agent) };
-            Mpeg queryTestMpeg = new Mpeg(Event, Concept," ", Place, Time, Relation, agents);
-           
+            HashSet<Agent> agents = new HashSet<Agent> {new Agent(agent)};
+            Mpeg queryTestMpeg = new Mpeg(Event, Concept, " ", Place, Time, Relation, agents);
+
             HashSet<Mpeg> result = manager.QueryImages(queryTestMpeg);
 
             foreach (var r in result)
             {
-             Image image = manager.GetImageFromBase64(r.Image);
-             
+                Image image = manager.GetImageFromBase64(r.Image);
             }
         }
 
