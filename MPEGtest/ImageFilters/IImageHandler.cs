@@ -11,5 +11,6 @@ namespace MPEGtest.ImageFilters
         public void UpdateImage(Bitmap newImage, bool temporary = false);
         public Bitmap GetBitmapImage();
         public Bitmap GetTempBitmapImage();
+        public string GetImageUrl();
     }
 }

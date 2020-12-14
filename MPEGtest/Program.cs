@@ -35,14 +35,14 @@ namespace MPEGtest
         {
             return new ServiceCollection()
                 .AddLogging()
-                .AddTransient<IWelcomeView, WelcomeView>()
-                .AddTransient<ISearchImageView, SearchImageView>()
-                .AddTransient<IUploadImageView, UploadImageView>()
-                .AddTransient<IImageFilterView, ImageFiltersView>()
+                .AddSingleton<IWelcomeView, WelcomeView>()
+                .AddSingleton<ISearchImageView, SearchImageView>()
+                .AddSingleton<IUploadImageView, UploadImageView>()
+                .AddSingleton<IImageFilterView, ImageFiltersView>()
                 .AddSingleton<IImageHandler, ImageHandler>()
-                .AddTransient<ISingleFilterView, SingleFilterView>()
-                .AddTransient<IGaussianFilter, GaussianFilter>()
-                .AddTransient<IMedianFilter, MedianFilter>()
+                .AddSingleton<ISingleFilterView, SingleFilterView>()
+                .AddSingleton<IGaussianFilter, GaussianFilter>()
+                .AddSingleton<IMedianFilter, MedianFilter>()
                 .BuildServiceProvider();
         }
     }

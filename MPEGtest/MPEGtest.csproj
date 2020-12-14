@@ -44,6 +44,9 @@
     <Compile Update="Views\SingleFiltersView\GaussianFilterView.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\SingleFiltersView\ErrosionFilterView.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

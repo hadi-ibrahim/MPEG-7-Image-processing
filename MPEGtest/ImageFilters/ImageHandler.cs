@@ -11,12 +11,14 @@ namespace MPEGtest.ImageFilters
         private static string CurrentImageFileName = "Original";
         private const string TempImageFileName = "Temp";
         private const string ImagePath = "../../../wwwroot/";
+        private Bitmap _image;
+
         private List<IImageObserver> _imageFilters = new List<IImageObserver>();
 
 
         public void UpdateImage(Bitmap newImage, bool temporary = false)
         {
-            SaveImage(newImage, temporary, true);
+            SaveImage(newImage, temporary);
         }
 
         private void DeleteFileIfExists()
@@ -30,35 +32,31 @@ namespace MPEGtest.ImageFilters
             else Console.WriteLine("File not found");
         }
 
-        private void SaveImage(Bitmap image, bool temporary, bool testing = false)
+        private void SaveImage(Bitmap image, bool temporary)
         {
-            // CurrentImageFileName += new Guid().ToString();
-            // if (isUpdate) {UpdateImageByPath(""); NotifyObservers(true);}
-            var savingPath = ImagePath + (temporary ? TempImageFileName : CurrentImageFileName);
-            // NotifyObservers(true);
-            // if (testing)
-            // {
-            //     savingPath = ImagePath + "GUI";
-            //     image.Save(savingPath);
-            //     UpdateImageByPath(savingPath);
-            //     return;
-            // }
-
-
-            // image.Save(savingPath);
+            // Save Image To Service
+            _image = image;
+            // Notify Views Of Change
             NotifyObservers(image);
-
-            // DeleteFileIfExists();
         }
 
         public Bitmap GetBitmapImage()
         {
-            return Image.FromFile(ImagePath + CurrentImageFileName) as Bitmap;
+            return _image;
         }
 
         public Bitmap GetTempBitmapImage()
         {
-            return Image.FromFile(ImagePath + TempImageFileName) as Bitmap;
+            // return Image.FromFile(ImagePath + TempImageFileName) as Bitmap;
+            return null;
+        }
+        
+
+        public string GetImageUrl()
+        {
+            var savingPath = ImagePath + (false ? TempImageFileName : CurrentImageFileName);
+            _image.Save(savingPath);
+            return savingPath;
         }
 
 
@@ -103,7 +101,7 @@ namespace MPEGtest.ImageFilters
         {
             // load an image
 
-            Bitmap image = (Bitmap) Image.FromFile(newImagePath);
+            var image = (Bitmap) Image.FromFile(newImagePath);
             //save Image to new path
             SaveImage(image, temporary);
         }

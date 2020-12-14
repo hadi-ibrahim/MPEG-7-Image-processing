@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using MPEGtest.Common;
 using MPEGtest.ImageFilters;
 using MPEGtest.Models;
 using MPEGtest.Views.ViewInterfaces;

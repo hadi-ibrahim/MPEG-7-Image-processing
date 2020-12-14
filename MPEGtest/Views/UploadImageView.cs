@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using Microsoft.Extensions.Hosting.Internal;
 using MPEGtest.Common;
 using MPEGtest.Common.Helpers;
 using MPEGtest.ImageFilters;
@@ -15,7 +16,6 @@ namespace MPEGtest.Views
     {
         public HashSet<Mpeg> mpegs { get; set; }
         private const string XmlPath = "../../test.xml";
-        private string _imagePath;
         private IImageHandler _imageHandler;
         private IUploadImageView _uploadImageViewImplementation;
 
@@ -63,7 +63,7 @@ namespace MPEGtest.Views
             String Relation = RelationTxt.Text;
 
             HashSet<Agent> agents = new HashSet<Agent> {new Agent(agent)};
-            string encodedImage = manager.GetBase64StringFromImage(_imagePath);
+            string encodedImage = manager.GetBase64StringFromImage(_imageHandler.GetImageUrl());
             Mpeg mpeg = new Mpeg(Event, Concept, encodedImage, Place, Time, Relation, agents);
             manager.AddMpegToXml(mpeg);
 
@@ -88,17 +88,8 @@ namespace MPEGtest.Views
 
         public void ReceiveImageUpdates(Bitmap image)
         {
-            // _imagePath = imagePath;
-            showImageOnPanel(image);
-        }
-
-        private void showImageOnPanel(Bitmap image)
-        {
-            Console.WriteLine("showing image on panel");
-            Console.WriteLine("From path {0}", _imagePath);
-            // Bitmap image = Image.FromFile(_imagePath);
-            ImageLabel.Image = image;
-            // pictureBox1.ImageLocation = _imagePath;
+            imagePanel.BackgroundImage = image;
+            Console.WriteLine("Image Updated");
         }
 
         public void SubscribeToImageChanges()
