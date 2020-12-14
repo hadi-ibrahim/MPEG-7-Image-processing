@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using MPEGtest.Models;
 
 namespace MPEGtest.Views.ViewInterfaces
@@ -7,6 +8,10 @@ namespace MPEGtest.Views.ViewInterfaces
     public interface IForm
     {
         public void Show();
+        
+        public void Dispose();
+        public DialogResult DialogResult { get; set; }
+        public DialogResult ShowDialog();
         public void Hide();
         // public abstract void SetName();
     }

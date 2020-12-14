@@ -38,11 +38,11 @@ namespace MPEGtest
                 .AddSingleton<IWelcomeView, WelcomeView>()
                 .AddSingleton<ISearchImageView, SearchImageView>()
                 .AddSingleton<IUploadImageView, UploadImageView>()
-                .AddSingleton<IImageFilterView, ImageFiltersView>()
+                .AddTransient<IImageFilterView, ImageFiltersView>()
                 .AddSingleton<IImageHandler, ImageHandler>()
-                .AddSingleton<ISingleFilterView, SingleFilterView>()
-                .AddSingleton<IGaussianFilter, GaussianFilter>()
-                .AddSingleton<IMedianFilter, MedianFilter>()
+                .AddTransient<ISliderForm, SliderForm>()
+                .AddTransient<ICrCgCbForm, CrCgCbForm>()
+                .AddTransient<IConfirmationForm, ConfirmationForm>()
                 .BuildServiceProvider();
         }
     }

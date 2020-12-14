@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Threading;
 using System.Windows.Forms;
 using MPEGtest.Common;
 using MPEGtest.Common.Helpers;
@@ -59,30 +60,190 @@ namespace MPEGtest.Views
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        
+        private void ShowErrorMessage(string message = "Something went bad :( Please contact you IT person")
+        {
+            MessageBox.Show(message, "Internal Server Error",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
 
 
         private void medianButton_Click(object sender, EventArgs e)
         {
-            var median = new MedianFilterView(_imageHandler);
-            median.Show();
-            // GetFilterView().SetupInputComponents(new SingleFilterConfiguration()
-            // {
-            //     FrameName = "Median Filter",
-            //     SliderConfig = DefaultConfig,
-            //     Filter = RoutingHelper.OpenAdditionalView<IMedianFilter>(),
-            // });
+            var inputView = RoutingHelper.OpenDialogView<ISliderForm>();
+            if (inputView.DialogResult != DialogResult.OK) return;
+            var config = inputView.OutputValue;
+            new Thread(() => { _imageHandler.UpdateImage(_imageHandler.GetBitmapImage().ApplyGaussianFilter(config)); })
+                .Start();
+            inputView.Dispose();
         }
-
-        private ISingleFilterView GetFilterView()
-        {
-            return RoutingHelper.OpenAdditionalView<ISingleFilterView>();
-        }
+        
 
         private void gaussianButton_Click(object sender, EventArgs e)
         {
+            var inputView = RoutingHelper.OpenDialogView<ISliderForm>();
+            if (inputView.DialogResult != DialogResult.OK) return;
+            var config = inputView.OutputValue;
+            new Thread(() =>
+                {
+                    try
+                    {
+                        _imageHandler.UpdateImage(_imageHandler.GetBitmapImage().ApplyGaussianFilter(config));
+                    }
+                    catch (Exception exception)
+                    {
+                        ShowErrorMessage(
+                            "Type not Supported, Please try to upload the image again and run this filter first");
+                    }
+                })
+                .Start();
+            inputView.Dispose();
+        }
 
-                var gaussian = new GaussianFilterView(_imageHandler);
-                gaussian.Show();
+        private void erosionButton_Click(object sender, EventArgs e)
+        {
+            var inputView = RoutingHelper.OpenDialogView<IConfirmationForm>();
+            if (inputView.DialogResult != DialogResult.OK) return;
+            new Thread(() =>
+                {
+                    try
+                    {
+                        _imageHandler.UpdateImage(_imageHandler.GetBitmapImage().ApplyErosionFilter());
+                    }
+                    catch (Exception exception)
+                    {
+                        ShowErrorMessage(
+                            "Type not Supported, Please try to upload the image again and run this filter first");
+                    }
+                })
+                .Start();
+            inputView.Dispose();
+        }
+
+        private void dilatationButton_Click(object sender, EventArgs e)
+        {
+            var inputView = RoutingHelper.OpenDialogView<IConfirmationForm>();
+            if (inputView.DialogResult != DialogResult.OK) return;
+            new Thread(() =>
+                {
+                    try
+                    {
+                        _imageHandler.UpdateImage(_imageHandler.GetBitmapImage().ApplyDilatationFilter());
+                    }
+                    catch (Exception exception)
+                    {
+                        ShowErrorMessage(
+                            "Type not Supported, Please try to upload the image again and run this filter first");
+                    }
+                })
+                .Start();
+            inputView.Dispose();
+        }
+
+        private void yCBCRButton_Click(object sender, EventArgs e)
+        {
+            var inputView = RoutingHelper.OpenDialogView<IConfirmationForm>();
+            if (inputView.DialogResult != DialogResult.OK) return;
+            new Thread(() =>
+                {
+                    try
+                    {
+                        _imageHandler.UpdateImage(_imageHandler.GetBitmapImage().ApplyYCBCRFilter());
+                    }
+                    catch (Exception exception)
+                    {
+                        ShowErrorMessage(
+                            "Type not Supported, Please try to upload the image again and run this filter first");
+                    }
+                })
+                .Start();
+            inputView.Dispose();
+        }
+
+        private void hSLButton_Click(object sender, EventArgs e)
+        {
+            var inputView = RoutingHelper.OpenDialogView<IConfirmationForm>();
+            if (inputView.DialogResult != DialogResult.OK) return;
+            new Thread(() =>
+                {
+                    try
+                    {
+                        _imageHandler.UpdateImage(_imageHandler.GetBitmapImage().ApplyHSLLinearFilter());
+                    }
+                    catch (Exception exception)
+                    {
+                        ShowErrorMessage(
+                            "Type not Supported, Please try to upload the image again and run this filter first");
+                    }
+                })
+                .Start();
+            inputView.Dispose();
+        }
+
+        private void grayScaleButton_Click(object sender, EventArgs e)
+        {
+            var inputView = RoutingHelper.OpenDialogView<ICrCgCbForm>();
+            if (inputView.DialogResult != DialogResult.OK) return;
+            var cr = inputView.Cr;
+            var cb = inputView.Cb;
+            var cg = inputView.Cg;
+            new Thread(() =>
+                {
+                    try
+                    {
+                        _imageHandler.UpdateImage(_imageHandler.GetBitmapImage().ApplyGrayScaleFilter(cr, cg, cb));
+                    }
+                    catch (Exception exception)
+                    {
+                        ShowErrorMessage(
+                            "Type not Supported, Please try to upload the image again and run this filter first");
+                    }
+                })
+                .Start();
+            inputView.Dispose();
+        }
+
+
+    
+
+        private void sobelEdgeDetectionButton_Click(object sender, EventArgs e)
+        {
+            var inputView = RoutingHelper.OpenDialogView<IConfirmationForm>();
+            if (inputView.DialogResult != DialogResult.OK) return;
+            new Thread(() =>
+                {
+                    try
+                    {
+                        _imageHandler.UpdateImage(_imageHandler.GetBitmapImage().ApplySobelEdgeDetectionFilter());
+                    }
+                    catch (Exception exception)
+                    {
+                        ShowErrorMessage(
+                            "Type not Supported, Please try to upload the image again and run this filter first");
+                    }
+                })
+                .Start();
+            inputView.Dispose();
+        }
+
+        private void laplacienEdgeDetectionButton_Click(object sender, EventArgs e)
+        {
+            var inputView = RoutingHelper.OpenDialogView<IConfirmationForm>();
+            if (inputView.DialogResult != DialogResult.OK) return;
+            new Thread(() =>
+                {
+                    try
+                    {
+                        _imageHandler.UpdateImage(_imageHandler.GetBitmapImage().ApplyLaplacienEdgeDetectionFilter());
+                    }
+                    catch (Exception exception)
+                    {
+                        ShowErrorMessage(
+                            "Type not Supported, Please try to upload the image again and run this filter first");
+                    }
+                })
+                .Start();
+            inputView.Dispose();
         }
     }
 }

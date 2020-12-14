@@ -35,7 +35,12 @@ namespace MPEGtest.Views
             this.gaussianButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.erosionButton = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.dilatationButton = new System.Windows.Forms.Button();
+            this.yCBCRButton = new System.Windows.Forms.Button();
+            this.hSLButton = new System.Windows.Forms.Button();
+            this.grayScaleButton = new System.Windows.Forms.Button();
+            this.sobelEdgeDetectionButton = new System.Windows.Forms.Button();
+            this.laplacienEdgeDetectionButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // medianButton
@@ -57,7 +62,6 @@ namespace MPEGtest.Views
             this.gaussianButton.Text = "Gaussian";
             this.gaussianButton.UseVisualStyleBackColor = true;
             this.gaussianButton.Click += new System.EventHandler(this.gaussianButton_Click);
-
             // 
             // label1
             // 
@@ -75,24 +79,81 @@ namespace MPEGtest.Views
             this.erosionButton.Name = "erosionButton";
             this.erosionButton.Size = new System.Drawing.Size(80, 34);
             this.erosionButton.TabIndex = 3;
-            this.erosionButton.Text = "Erosion";
+            this.erosionButton.Text = "Erosion 3X3";
             this.erosionButton.UseVisualStyleBackColor = true;
+            this.erosionButton.Click += new System.EventHandler(this.erosionButton_Click);
             // 
-            // button4
+            // dilatationButton
             // 
-            this.button4.Location = new System.Drawing.Point(276, 48);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(80, 34);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "Gaussian";
-            this.button4.UseVisualStyleBackColor = true;
+            this.dilatationButton.Location = new System.Drawing.Point(276, 48);
+            this.dilatationButton.Name = "dilatationButton";
+            this.dilatationButton.Size = new System.Drawing.Size(80, 34);
+            this.dilatationButton.TabIndex = 4;
+            this.dilatationButton.Text = "Dilatation 3X3";
+            this.dilatationButton.UseVisualStyleBackColor = true;
+            this.dilatationButton.Click += new System.EventHandler(this.dilatationButton_Click);
+            // 
+            // yCBCRButton
+            // 
+            this.yCBCRButton.Location = new System.Drawing.Point(18, 104);
+            this.yCBCRButton.Name = "yCBCRButton";
+            this.yCBCRButton.Size = new System.Drawing.Size(80, 34);
+            this.yCBCRButton.TabIndex = 5;
+            this.yCBCRButton.Text = "YCBCR";
+            this.yCBCRButton.UseVisualStyleBackColor = true;
+            this.yCBCRButton.Click += new System.EventHandler(this.yCBCRButton_Click);
+            // 
+            // hSLButton
+            // 
+            this.hSLButton.Location = new System.Drawing.Point(104, 104);
+            this.hSLButton.Name = "hSLButton";
+            this.hSLButton.Size = new System.Drawing.Size(80, 34);
+            this.hSLButton.TabIndex = 6;
+            this.hSLButton.Text = "HSL Linear";
+            this.hSLButton.UseVisualStyleBackColor = true;
+            this.hSLButton.Click += new System.EventHandler(this.hSLButton_Click);
+            // 
+            // grayScaleButton
+            // 
+            this.grayScaleButton.Location = new System.Drawing.Point(190, 104);
+            this.grayScaleButton.Name = "grayScaleButton";
+            this.grayScaleButton.Size = new System.Drawing.Size(80, 34);
+            this.grayScaleButton.TabIndex = 7;
+            this.grayScaleButton.Text = "GrayScale";
+            this.grayScaleButton.UseVisualStyleBackColor = true;
+            this.grayScaleButton.Click += new System.EventHandler(this.grayScaleButton_Click);
+            // 
+            // sobelEdgeDetectionButton
+            // 
+            this.sobelEdgeDetectionButton.Location = new System.Drawing.Point(276, 104);
+            this.sobelEdgeDetectionButton.Name = "sobelEdgeDetectionButton";
+            this.sobelEdgeDetectionButton.Size = new System.Drawing.Size(80, 34);
+            this.sobelEdgeDetectionButton.TabIndex = 8;
+            this.sobelEdgeDetectionButton.Text = "Sobel Edge Detection";
+            this.sobelEdgeDetectionButton.UseVisualStyleBackColor = true;
+            this.sobelEdgeDetectionButton.Click += new System.EventHandler(this.sobelEdgeDetectionButton_Click);
+            // 
+            // laplacienEdgeDetectionButton
+            // 
+            this.laplacienEdgeDetectionButton.Location = new System.Drawing.Point(18, 161);
+            this.laplacienEdgeDetectionButton.Name = "laplacienEdgeDetectionButton";
+            this.laplacienEdgeDetectionButton.Size = new System.Drawing.Size(80, 34);
+            this.laplacienEdgeDetectionButton.TabIndex = 9;
+            this.laplacienEdgeDetectionButton.Text = "Laplacien Edge Detection";
+            this.laplacienEdgeDetectionButton.UseVisualStyleBackColor = true;
+            this.laplacienEdgeDetectionButton.Click += new System.EventHandler(this.laplacienEdgeDetectionButton_Click);
             // 
             // ImageFiltersView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(372, 226);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.laplacienEdgeDetectionButton);
+            this.Controls.Add(this.sobelEdgeDetectionButton);
+            this.Controls.Add(this.grayScaleButton);
+            this.Controls.Add(this.hSLButton);
+            this.Controls.Add(this.yCBCRButton);
+            this.Controls.Add(this.dilatationButton);
             this.Controls.Add(this.erosionButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.gaussianButton);
@@ -103,12 +164,22 @@ namespace MPEGtest.Views
             this.ResumeLayout(false);
         }
 
+        private System.Windows.Forms.Button laplacienEdgeDetectionButton;
+
+        private System.Windows.Forms.Button sobelEdgeDetectionButton;
+
+        private System.Windows.Forms.Button grayScaleButton;
+
+        private System.Windows.Forms.Button hSLButton;
+
+        private System.Windows.Forms.Button yCBCRButton;
+
+        private System.Windows.Forms.Button dilatationButton;
+
         private System.Windows.Forms.Button erosionButton;
 
         private System.Windows.Forms.Button gaussianButton;
         private System.Windows.Forms.Button medianButton;
-
-        private System.Windows.Forms.Button button4;
 
         private System.Windows.Forms.Label label1;
 

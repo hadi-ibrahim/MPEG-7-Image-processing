@@ -8,14 +8,14 @@ namespace MPEGtest.ImageFilters
         {
             return square == default
                 ? new AForge.Imaging.Filters.Median().Apply(image)
-                : new AForge.Imaging.Filters.Median((int) square).Apply(image);
+                : new AForge.Imaging.Filters.Median(square).Apply(image);
         }
 
         public static Bitmap ApplyGaussianFilter(this Bitmap image, int square = default) // 3-99
         {
             return square == default
                 ? new AForge.Imaging.Filters.GaussianBlur().Apply(image)
-                : new AForge.Imaging.Filters.GaussianBlur((int) square).Apply(image);
+                : new AForge.Imaging.Filters.GaussianBlur(square).Apply(image);
         }
 
         public static Bitmap ApplyErosionFilter(this Bitmap image) 
@@ -23,7 +23,7 @@ namespace MPEGtest.ImageFilters
             return new AForge.Imaging.Filters.BinaryErosion3x3().Apply(image);
         }
 
-        public static Bitmap ApplyDilationFilter(this Bitmap image)
+        public static Bitmap ApplyDilatationFilter(this Bitmap image)
         {
             return new AForge.Imaging.Filters.BinaryDilatation3x3().Apply(image);
         }

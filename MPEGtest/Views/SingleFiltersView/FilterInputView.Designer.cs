@@ -1,8 +1,8 @@
-﻿using System.ComponentModel;
+﻿﻿using System.ComponentModel;
 
 namespace MPEGtest.Views.SingleFiltersView
 {
-    partial class ErrosionFilterView
+    partial class FilterInputView
     {
         /// <summary>
         /// Required designer variable.
@@ -34,7 +34,7 @@ namespace MPEGtest.Views.SingleFiltersView
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "ErrosionFilterView";
+            this.Text = "FilterInputView";
         }
 
         #endregion

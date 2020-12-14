@@ -24,6 +24,13 @@ namespace MPEGtest.Common.Helpers
             newForm.Show();
             return (T) newForm;
         }
+        
+        public static T OpenDialogView<T>()
+        {
+            var newForm = (IForm) ServiceProvider.GetService<T>() ;
+            newForm.ShowDialog();
+            return (T) newForm;
+        }
     }
 }
 

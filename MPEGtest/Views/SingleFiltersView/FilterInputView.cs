@@ -2,9 +2,9 @@
 
 namespace MPEGtest.Views.SingleFiltersView
 {
-    public partial class ErrosionFilterView : Form
+    public partial class FilterInputView : Form
     {
-        public ErrosionFilterView()
+        public FilterInputView()
         {
             InitializeComponent();
         }
