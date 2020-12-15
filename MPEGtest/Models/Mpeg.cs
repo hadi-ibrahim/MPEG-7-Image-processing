@@ -18,8 +18,8 @@ namespace MPEGtest.Models
             this.Evt = evt;
             this.Concept = concept;
             this.Image = image;
-            this.Place = place;
-            this.Time = time;
+            this.SpatialRelation = place;
+            this.TemporalRelation = time;
             this.Relation = relation;
             this.Agents = agents;
 
@@ -30,8 +30,13 @@ namespace MPEGtest.Models
         public string Evt { get; set; }
         public string Concept { get; set; }
         public string Image { get; set; }
-        public string Place { get; set; }
-        public string Time { get; set; }
+        public string SpatialRelation { get; set; }
+        public string SpatialRelationSource { get; set; }
+        public string SpatialRelationTarget { get; set; }
+        public string TemporalRelation { get; set; }
+        public string TemporalRelationSource { get; set; }
+        public string TemporalRelationTarget { get; set; }
+
         public string Relation { get; set; }
 
         public virtual HashSet<Agent> Agents { get; set; }
@@ -47,8 +52,8 @@ namespace MPEGtest.Models
                 if (!Concept.Equals(mpeg.Concept)) flag = false;
                 if (!Evt.Equals(mpeg.Evt)) flag = false;
                 if (!Image.Equals(mpeg.Image))flag = false;
-                if (!Place.Equals(mpeg.Place))flag = false;
-                if (!Time.Equals(mpeg.Time))flag = false;
+                if (!SpatialRelation.Equals(mpeg.SpatialRelation))flag = false;
+                if (!TemporalRelation.Equals(mpeg.TemporalRelation))flag = false;
                 if (!Relation.Equals(mpeg.Relation))flag = false;
                 foreach (var agent in Agents )
                 {

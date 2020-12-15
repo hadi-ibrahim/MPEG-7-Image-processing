@@ -10,7 +10,7 @@ namespace MPEGtest.Views
 {
     public partial class SearchImageView : Form, ISearchImageView
     {
-        private string xmlPath = "../../test.xml";
+        private string xmlPath = "../../../mpegs.xml";
 
         public SearchImageView()
         {
@@ -32,8 +32,7 @@ namespace MPEGtest.Views
 
 
             HashSet<Agent> agents = new HashSet<Agent> {new Agent(agent)};
-            Mpeg queryTestMpeg = new Mpeg(Event, Concept, " ", Place, Time, Relation, agents);
-
+            Mpeg queryTestMpeg = new Mpeg(Event, Concept, "", Place, Time, Relation, agents);
             HashSet<Mpeg> result = manager.QueryImages(queryTestMpeg);
 
             foreach (var r in result)
