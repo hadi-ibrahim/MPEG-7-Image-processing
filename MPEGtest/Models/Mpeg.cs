@@ -13,13 +13,21 @@ namespace MPEGtest.Models
             Agents = new HashSet<Agent>();
         }
 
-        public Mpeg(string evt, string concept, string image, string place, string time, string relation, HashSet<Agent> agents)
+        public Mpeg(string evt, string concept, string image,  string spatialRelation,
+            string spatialRelationSource, string spatialRelationTarget, string temporalRelation,
+            string  temporalRelationSource, string temporalRelationTarget, string relation, HashSet<Agent> agents)
         {
             this.Evt = evt;
             this.Concept = concept;
             this.Image = image;
-            this.SpatialRelation = place;
-            this.TemporalRelation = time;
+            this.SpatialRelation = spatialRelation;
+            this.SpatialRelationSource = spatialRelationSource;
+            this.SpatialRelationTarget = spatialRelationTarget;
+
+            this.TemporalRelation = temporalRelation;
+            this.TemporalRelationSource = temporalRelationSource;
+            this.TemporalRelationTarget = temporalRelationTarget;
+
             this.Relation = relation;
             this.Agents = agents;
 

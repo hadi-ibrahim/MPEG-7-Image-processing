@@ -36,8 +36,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.ConceptTxt = new System.Windows.Forms.TextBox();
             this.EventTxt = new System.Windows.Forms.TextBox();
-            this.PlaceTxt = new System.Windows.Forms.TextBox();
-            this.TimeTxt = new System.Windows.Forms.TextBox();
+            this.SpatialRelationSourceTxt = new System.Windows.Forms.TextBox();
+            this.TemporalRelationSourceTxt = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.AgentTxt = new System.Windows.Forms.TextBox();
@@ -49,10 +49,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.SpatialRelationTxt = new System.Windows.Forms.TextBox();
+            this.SpatialRelationTargetTxt = new System.Windows.Forms.TextBox();
+            this.TemporalRelationTxt = new System.Windows.Forms.TextBox();
+            this.TemporalRelationTargetTxt = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -69,7 +69,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(563, 506);
+            this.button1.Location = new System.Drawing.Point(521, 507);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 30);
             this.button1.TabIndex = 3;
@@ -80,7 +80,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(408, 183);
+            this.label1.Location = new System.Drawing.Point(366, 184);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 15);
             this.label1.TabIndex = 4;
@@ -89,7 +89,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(408, 220);
+            this.label2.Location = new System.Drawing.Point(366, 221);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(36, 15);
             this.label2.TabIndex = 5;
@@ -98,16 +98,16 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(408, 260);
+            this.label3.Location = new System.Drawing.Point(366, 261);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(88, 15);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Spatial Realtion";
+            this.label3.Text = "Spatial Relation";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(396, 301);
+            this.label4.Location = new System.Drawing.Point(366, 297);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(102, 15);
             this.label4.TabIndex = 7;
@@ -115,37 +115,37 @@
             // 
             // ConceptTxt
             // 
-            this.ConceptTxt.Location = new System.Drawing.Point(504, 183);
+            this.ConceptTxt.Location = new System.Drawing.Point(477, 184);
             this.ConceptTxt.Name = "ConceptTxt";
-            this.ConceptTxt.Size = new System.Drawing.Size(172, 23);
+            this.ConceptTxt.Size = new System.Drawing.Size(176, 23);
             this.ConceptTxt.TabIndex = 8;
             // 
             // EventTxt
             // 
-            this.EventTxt.Location = new System.Drawing.Point(504, 217);
+            this.EventTxt.Location = new System.Drawing.Point(477, 218);
             this.EventTxt.Name = "EventTxt";
-            this.EventTxt.Size = new System.Drawing.Size(172, 23);
+            this.EventTxt.Size = new System.Drawing.Size(176, 23);
             this.EventTxt.TabIndex = 9;
             // 
-            // PlaceTxt
+            // SpatialRelationSourceTxt
             // 
-            this.PlaceTxt.Location = new System.Drawing.Point(504, 252);
-            this.PlaceTxt.Name = "PlaceTxt";
-            this.PlaceTxt.Size = new System.Drawing.Size(52, 23);
-            this.PlaceTxt.TabIndex = 10;
+            this.SpatialRelationSourceTxt.Location = new System.Drawing.Point(477, 253);
+            this.SpatialRelationSourceTxt.Name = "SpatialRelationSourceTxt";
+            this.SpatialRelationSourceTxt.Size = new System.Drawing.Size(52, 23);
+            this.SpatialRelationSourceTxt.TabIndex = 10;
             // 
-            // TimeTxt
+            // TemporalRelationSourceTxt
             // 
-            this.TimeTxt.Location = new System.Drawing.Point(504, 293);
-            this.TimeTxt.Name = "TimeTxt";
-            this.TimeTxt.Size = new System.Drawing.Size(52, 23);
-            this.TimeTxt.TabIndex = 11;
+            this.TemporalRelationSourceTxt.Location = new System.Drawing.Point(477, 294);
+            this.TemporalRelationSourceTxt.Name = "TemporalRelationSourceTxt";
+            this.TemporalRelationSourceTxt.Size = new System.Drawing.Size(52, 23);
+            this.TemporalRelationSourceTxt.TabIndex = 11;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.label6.Location = new System.Drawing.Point(408, 140);
+            this.label6.Location = new System.Drawing.Point(366, 141);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(261, 15);
             this.label6.TabIndex = 13;
@@ -153,7 +153,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(504, 419);
+            this.button3.Location = new System.Drawing.Point(462, 420);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(134, 30);
             this.button3.TabIndex = 14;
@@ -163,15 +163,15 @@
             // 
             // AgentTxt
             // 
-            this.AgentTxt.Location = new System.Drawing.Point(504, 337);
+            this.AgentTxt.Location = new System.Drawing.Point(477, 338);
             this.AgentTxt.Name = "AgentTxt";
-            this.AgentTxt.Size = new System.Drawing.Size(172, 23);
+            this.AgentTxt.Size = new System.Drawing.Size(176, 23);
             this.AgentTxt.TabIndex = 18;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(408, 345);
+            this.label9.Location = new System.Drawing.Point(366, 338);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(39, 15);
             this.label9.TabIndex = 19;
@@ -179,15 +179,15 @@
             // 
             // RelationTxt
             // 
-            this.RelationTxt.Location = new System.Drawing.Point(504, 375);
+            this.RelationTxt.Location = new System.Drawing.Point(477, 376);
             this.RelationTxt.Name = "RelationTxt";
-            this.RelationTxt.Size = new System.Drawing.Size(172, 23);
+            this.RelationTxt.Size = new System.Drawing.Size(176, 23);
             this.RelationTxt.TabIndex = 20;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(407, 381);
+            this.label10.Location = new System.Drawing.Point(365, 382);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(50, 15);
             this.label10.TabIndex = 21;
@@ -195,7 +195,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(408, 506);
+            this.button4.Location = new System.Drawing.Point(366, 507);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(128, 30);
             this.button4.TabIndex = 22;
@@ -243,41 +243,41 @@
             this.pictureBox1.TabIndex = 24;
             this.pictureBox1.TabStop = false;
             // 
-            // textBox1
+            // SpatialRelationTxt
             // 
-            this.textBox1.Location = new System.Drawing.Point(563, 252);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(60, 23);
-            this.textBox1.TabIndex = 8;
+            this.SpatialRelationTxt.Location = new System.Drawing.Point(535, 253);
+            this.SpatialRelationTxt.Name = "SpatialRelationTxt";
+            this.SpatialRelationTxt.Size = new System.Drawing.Size(61, 23);
+            this.SpatialRelationTxt.TabIndex = 8;
             // 
-            // textBox2
+            // SpatialRelationTargetTxt
             // 
-            this.textBox2.Location = new System.Drawing.Point(629, 252);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(47, 23);
-            this.textBox2.TabIndex = 8;
+            this.SpatialRelationTargetTxt.Location = new System.Drawing.Point(602, 253);
+            this.SpatialRelationTargetTxt.Name = "SpatialRelationTargetTxt";
+            this.SpatialRelationTargetTxt.Size = new System.Drawing.Size(51, 23);
+            this.SpatialRelationTargetTxt.TabIndex = 8;
             // 
-            // textBox3
+            // TemporalRelationTxt
             // 
-            this.textBox3.Location = new System.Drawing.Point(563, 293);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(60, 23);
-            this.textBox3.TabIndex = 18;
+            this.TemporalRelationTxt.Location = new System.Drawing.Point(536, 294);
+            this.TemporalRelationTxt.Name = "TemporalRelationTxt";
+            this.TemporalRelationTxt.Size = new System.Drawing.Size(60, 23);
+            this.TemporalRelationTxt.TabIndex = 18;
             // 
-            // textBox4
+            // TemporalRelationTargetTxt
             // 
-            this.textBox4.Location = new System.Drawing.Point(629, 293);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(51, 23);
-            this.textBox4.TabIndex = 18;
+            this.TemporalRelationTargetTxt.Location = new System.Drawing.Point(602, 294);
+            this.TemporalRelationTargetTxt.Name = "TemporalRelationTargetTxt";
+            this.TemporalRelationTargetTxt.Size = new System.Drawing.Size(51, 23);
+            this.TemporalRelationTargetTxt.TabIndex = 18;
             // 
             // UploadImageView
             // 
-            this.ClientSize = new System.Drawing.Size(1002, 544);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(711, 544);
+            this.Controls.Add(this.TemporalRelationTargetTxt);
+            this.Controls.Add(this.TemporalRelationTxt);
+            this.Controls.Add(this.SpatialRelationTargetTxt);
+            this.Controls.Add(this.SpatialRelationTxt);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
@@ -288,8 +288,8 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.TimeTxt);
-            this.Controls.Add(this.PlaceTxt);
+            this.Controls.Add(this.TemporalRelationSourceTxt);
+            this.Controls.Add(this.SpatialRelationSourceTxt);
             this.Controls.Add(this.EventTxt);
             this.Controls.Add(this.ConceptTxt);
             this.Controls.Add(this.label4);
@@ -321,8 +321,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox ConceptTxt;
         private System.Windows.Forms.TextBox EventTxt;
-        private System.Windows.Forms.TextBox PlaceTxt;
-        private System.Windows.Forms.TextBox TimeTxt;
+        private System.Windows.Forms.TextBox SpatialRelationSourceTxt;
+        private System.Windows.Forms.TextBox TemporalRelationSourceTxt;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
@@ -334,10 +334,10 @@
         private System.Windows.Forms.TextBox RelationTxt;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox SpatialRelationTxt;
+        private System.Windows.Forms.TextBox SpatialRelationTargetTxt;
+        private System.Windows.Forms.TextBox TemporalRelationTxt;
+        private System.Windows.Forms.TextBox TemporalRelationTargetTxt;
     }
 }
 

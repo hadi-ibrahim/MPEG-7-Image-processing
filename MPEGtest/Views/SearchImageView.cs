@@ -32,13 +32,13 @@ namespace MPEGtest.Views
 
 
             HashSet<Agent> agents = new HashSet<Agent> {new Agent(agent)};
-            Mpeg queryTestMpeg = new Mpeg(Event, Concept, "", Place, Time, Relation, agents);
-            HashSet<Mpeg> result = manager.QueryImages(queryTestMpeg);
+            //Mpeg queryTestMpeg = new Mpeg(Event, Concept, "", Place, Time, Relation, agents);
+            //HashSet<Mpeg> result = manager.QueryImages(queryTestMpeg);
 
-            foreach (var r in result)
-            {
-                Image image = manager.GetImageFromBase64(r.Image);
-            }
+            //foreach (var r in result)
+            //{
+            //    Image image = manager.GetImageFromBase64(r.Image);
+            //}
         }
 
         private void BackButtonOnClick(object sender, EventArgs e)

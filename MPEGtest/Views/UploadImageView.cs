@@ -52,16 +52,22 @@ namespace MPEGtest.Views
         {
             MpegManager manager = new MpegManager(XmlPath);
 
-            String Concept = ConceptTxt.Text;
-            String Event = EventTxt.Text;
-            String Place = PlaceTxt.Text;
-            String Time = TimeTxt.Text;
-            String agent = AgentTxt.Text;
-            String Relation = RelationTxt.Text;
+            var Concept = ConceptTxt.Text ?? "";
+            var Event = EventTxt.Text ?? "";
+            var SpatialRelation = SpatialRelationTxt.Text ?? "";
+            var SpatialRelationSource = SpatialRelationSourceTxt.Text ?? "";
+            var SpatialRelationTarget = SpatialRelationTargetTxt.Text ?? "";
+
+            var TemporalRelation = TemporalRelationTxt.Text ?? "";
+            var TemporalRelationSource = TemporalRelationSourceTxt.Text ?? "";
+            var TemporalRelationTarget = TemporalRelationTargetTxt.Text ?? "";
+            var agent = AgentTxt.Text ?? "";
+            var Relation = RelationTxt.Text ?? "";
 
             HashSet<Agent> agents = new HashSet<Agent> {new Agent(agent)};
             string encodedImage = manager.GetBase64StringFromImage(_imageHandler.GetImageUrl());
-            Mpeg mpeg = new Mpeg(Event, Concept, encodedImage, Place, Time, Relation, agents);
+            Mpeg mpeg = new Mpeg(Event, Concept, encodedImage, SpatialRelation, SpatialRelationSource, SpatialRelationTarget,
+                TemporalRelation, TemporalRelationSource, TemporalRelationTarget, Relation, agents);
             manager.AddMpegToXml(mpeg);
 
             // manager.MigrateXmlToDb();        
