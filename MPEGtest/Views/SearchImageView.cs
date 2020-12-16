@@ -10,18 +10,18 @@ namespace MPEGtest.Views
 {
     public partial class SearchImageView : Form, ISearchImageView
     {
-        private string xmlPath = "../../../mpegs.xml";
+        private const string XmlPath = "../../../test.xml";
 
         public SearchImageView()
         {
             InitializeComponent();
-            MpegManager manager = new MpegManager(xmlPath);
+            MpegManager manager = new MpegManager(XmlPath);
         }
 
 
         private void SearchButtonOnClick(object sender, EventArgs e)
         {
-            MpegManager manager = new MpegManager(xmlPath);
+            MpegManager manager = new MpegManager(XmlPath);
 
             var Concept = ConceptTxt.Text ?? "";
             var Event = EventTxt.Text ?? "";

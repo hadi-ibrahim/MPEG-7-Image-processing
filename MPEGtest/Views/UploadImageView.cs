@@ -12,7 +12,7 @@ namespace MPEGtest.Views
 {
     public partial class UploadImageView : Form, IUploadImageView, IImageObserver
     {
-        private const string XmlPath = "../../test.xml";
+        private const string XmlPath = "../../../test.xml";
         private IImageHandler _imageHandler;
         private IUploadImageView _uploadImageViewImplementation;
 
