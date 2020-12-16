@@ -44,6 +44,11 @@ namespace MPEGtest.ImageFilters
             return new AForge.Imaging.Filters.Grayscale(cr, cg, cb).Apply(image);
         }
         
+        public static Bitmap ApplyGrayScaleToRGBFilter(this Bitmap image)
+        {
+            return new AForge.Imaging.Filters.GrayscaleToRGB().Apply(image);
+        }
+        
         public static Bitmap ApplySobelEdgeDetectionFilter(this Bitmap image)
         {
             return new AForge.Imaging.Filters.SobelEdgeDetector().Apply(image);

@@ -203,6 +203,27 @@ namespace MPEGtest.Views
                 .Start();
             inputView.Dispose();
         }
+        
+        private void grayScaleToRgbButton_Click(object sender, EventArgs e)
+        {
+            var inputView = RoutingHelper.OpenDialogView<IConfirmationForm>();
+            if (inputView.DialogResult != DialogResult.OK) return;
+
+            new Thread(() =>
+                {
+                    try
+                    {
+                        _imageHandler.UpdateImage(_imageHandler.GetBitmapImage().ApplyGrayScaleToRGBFilter());
+                    }
+                    catch (Exception exception)
+                    {
+                        Console.WriteLine(exception);
+                        ShowErrorMessage(_sourcePixelFormatExceptionMessage);
+                    }
+                })
+                .Start();
+            inputView.Dispose();
+        }
 
 
         private void sobelEdgeDetectionButton_Click(object sender, EventArgs e)
@@ -244,5 +265,7 @@ namespace MPEGtest.Views
                 .Start();
             inputView.Dispose();
         }
+
+        
     }
 }

@@ -41,6 +41,7 @@ namespace MPEGtest.Views
             this.grayScaleButton = new System.Windows.Forms.Button();
             this.sobelEdgeDetectionButton = new System.Windows.Forms.Button();
             this.laplacianEdgeDetectionButton = new System.Windows.Forms.Button();
+            this.grayScaleToRgbButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // medianButton
@@ -125,7 +126,7 @@ namespace MPEGtest.Views
             // 
             // sobelEdgeDetectionButton
             // 
-            this.sobelEdgeDetectionButton.Location = new System.Drawing.Point(276, 104);
+            this.sobelEdgeDetectionButton.Location = new System.Drawing.Point(104, 161);
             this.sobelEdgeDetectionButton.Name = "sobelEdgeDetectionButton";
             this.sobelEdgeDetectionButton.Size = new System.Drawing.Size(80, 34);
             this.sobelEdgeDetectionButton.TabIndex = 8;
@@ -143,11 +144,22 @@ namespace MPEGtest.Views
             this.laplacianEdgeDetectionButton.UseVisualStyleBackColor = true;
             this.laplacianEdgeDetectionButton.Click += new System.EventHandler(this.laplacianEdgeDetectionButton_Click);
             // 
+            // grayScaleToRgbButton
+            // 
+            this.grayScaleToRgbButton.Location = new System.Drawing.Point(276, 104);
+            this.grayScaleToRgbButton.Name = "grayScaleToRgbButton";
+            this.grayScaleToRgbButton.Size = new System.Drawing.Size(80, 34);
+            this.grayScaleToRgbButton.TabIndex = 10;
+            this.grayScaleToRgbButton.Text = "GrayScale To RGB";
+            this.grayScaleToRgbButton.UseVisualStyleBackColor = true;
+            this.grayScaleToRgbButton.Click += new System.EventHandler(this.grayScaleToRgbButton_Click);
+            // 
             // ImageFiltersView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(372, 226);
+            this.Controls.Add(this.grayScaleToRgbButton);
             this.Controls.Add(this.laplacianEdgeDetectionButton);
             this.Controls.Add(this.sobelEdgeDetectionButton);
             this.Controls.Add(this.grayScaleButton);
@@ -163,6 +175,8 @@ namespace MPEGtest.Views
             this.Text = "ImageFiltersView";
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.Button grayScaleToRgbButton;
 
         private System.Windows.Forms.Button laplacianEdgeDetectionButton;
 
