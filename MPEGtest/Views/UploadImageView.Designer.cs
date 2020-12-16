@@ -48,13 +48,12 @@
             this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.imagePanel = new System.Windows.Forms.Panel();
             this.SpatialRelationTxt = new System.Windows.Forms.TextBox();
             this.SpatialRelationTargetTxt = new System.Windows.Forms.TextBox();
             this.TemporalRelationTxt = new System.Windows.Forms.TextBox();
             this.TemporalRelationTargetTxt = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // button2
@@ -234,14 +233,13 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.OpenFiltersButtonClick);
             // 
-            // pictureBox1
+            // imagePanel
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(36, 164);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(268, 211);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 24;
-            this.pictureBox1.TabStop = false;
+            this.imagePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.imagePanel.Location = new System.Drawing.Point(25, 140);
+            this.imagePanel.Name = "imagePanel";
+            this.imagePanel.Size = new System.Drawing.Size(293, 242);
+            this.imagePanel.TabIndex = 25;
             // 
             // SpatialRelationTxt
             // 
@@ -263,13 +261,7 @@
             this.TemporalRelationTxt.Name = "TemporalRelationTxt";
             this.TemporalRelationTxt.Size = new System.Drawing.Size(60, 23);
             this.TemporalRelationTxt.TabIndex = 18;
-            // 
-            // TemporalRelationTargetTxt
-            // 
-            this.TemporalRelationTargetTxt.Location = new System.Drawing.Point(602, 294);
-            this.TemporalRelationTargetTxt.Name = "TemporalRelationTargetTxt";
-            this.TemporalRelationTargetTxt.Size = new System.Drawing.Size(51, 23);
-            this.TemporalRelationTargetTxt.TabIndex = 18;
+            
             // 
             // UploadImageView
             // 
@@ -278,7 +270,7 @@
             this.Controls.Add(this.TemporalRelationTxt);
             this.Controls.Add(this.SpatialRelationTargetTxt);
             this.Controls.Add(this.SpatialRelationTxt);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.imagePanel);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.label10);
@@ -304,11 +296,10 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
-        }
+        private System.Windows.Forms.Panel imagePanel;
 
         private System.Windows.Forms.Button button5;
 
@@ -333,7 +324,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox RelationTxt;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox SpatialRelationTxt;
         private System.Windows.Forms.TextBox SpatialRelationTargetTxt;
         private System.Windows.Forms.TextBox TemporalRelationTxt;
