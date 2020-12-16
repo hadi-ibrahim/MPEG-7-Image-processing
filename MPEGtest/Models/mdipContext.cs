@@ -61,7 +61,7 @@ namespace MPEGtest.Models
 
                 entity.Property(e => e.Image).HasColumnName("image");
 
-                entity.Property(e => e.Place)
+                entity.Property(e => e.SpatialRelation)
                     .HasMaxLength(50)
                     .HasColumnName("place");
 
@@ -69,7 +69,7 @@ namespace MPEGtest.Models
                     .HasMaxLength(50)
                     .HasColumnName("relation");
 
-                entity.Property(e => e.Time)
+                entity.Property(e => e.TemporalRelation)
                     .HasMaxLength(60)
                     .HasColumnName("time");
 

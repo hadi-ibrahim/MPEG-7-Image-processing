@@ -24,7 +24,7 @@ namespace MPEGtest
         {
             XElement doc = XElement.Load(xmlPath);
             var matches = FilterAllCrtieria(doc.Elements("Mpeg"), criteriaMpeg);
-            HashSet<Mpeg> result = ConvertXElementsToMpegs(matches);
+            HashSet<Mpeg> result = DeserializeXmlElementsToMpegs(matches);
 
             return result;
 
@@ -35,43 +35,45 @@ namespace MPEGtest
 
             result = FilterByCriteria(result, "Concept", criteriaMpeg.Concept);
             result = FilterByCriteria(result, "Evt", criteriaMpeg.Evt);
-            result = FilterByCriteria(result, "Place", criteriaMpeg.Place);
-            result = FilterByCriteria(result, "Time", criteriaMpeg.Time);
+
+            result = FilterByCriteria(result, "SpatialRelation", criteriaMpeg.SpatialRelation);
+            result = FilterByRelationAttribute(result, "SpatialRelation", "Source", criteriaMpeg.SpatialRelationSource);
+            result = FilterByRelationAttribute(result, "SpatialRelation", "Target", criteriaMpeg.SpatialRelationTarget);
+
+            result = FilterByCriteria(result, "TemporalRelation", criteriaMpeg.TemporalRelation);
+            result = FilterByRelationAttribute(result, "TemporalRelation", "Source", criteriaMpeg.TemporalRelationSource);
+            result = FilterByRelationAttribute(result, "TemporalRelation", "Target", criteriaMpeg.TemporalRelationTarget);
+
             result = FilterByCriteria(result, "Relation", criteriaMpeg.Relation);
             result = FilterByAgents(result, criteriaMpeg);
             return result;
         }
         private IEnumerable<XElement> FilterByCriteria(IEnumerable<XElement> matches, string criteriaName, string criteriaValue)
         {
-            return matches.Where(x => x.Descendants()
-                                        .Where(e => e.Name == criteriaName && e.Value.ToLower().Contains(criteriaValue.ToLower()))
+            return matches.Where(x => x.Elements(criteriaName)
+                                        .Where(e => e.Value.ToLower().Contains(criteriaValue.ToLower()))
                                         .Any());
+        }
+
+        private IEnumerable<XElement> FilterByRelationAttribute(IEnumerable<XElement> matches, string criteriaName,string attributeName, string attributeValue)
+        {
+            return matches.Where(x => x.Elements(criteriaName).Attributes(attributeName)
+                                        .Where(e => e.Value.ToLower().Contains(attributeValue.ToLower()))
+                                        .Any()); ;
         }
 
         private IEnumerable<XElement> FilterByAgents(IEnumerable<XElement> matches, Mpeg criteriaMpeg)
         {
             foreach (Agent agent in criteriaMpeg.Agents)
-                matches = FilterByAgent(matches, agent.Name);
+                matches = FilterByCriteria(matches,"Agent", agent.Name);
 
             return matches;
-        }
-
-        private IEnumerable<XElement> FilterByAgent(IEnumerable<XElement> matches, string agentName)
-        {
-            return matches.Where(x => x.Descendants()
-                                        .Where(e => e.Name == "Name" && e.Value.ToLower().Contains(agentName.ToLower()))
-                                        .Any());
         }
 
         public void AddMpegToXml(Mpeg mpeg)
         {
             var mpegs = DeserializeMpegsFromXmlFile();
-            Console.WriteLine("mpeg");
-            Console.WriteLine(mpeg);
-            
             mpegs.Add(mpeg);
-            Console.WriteLine("mpegs");
-            Console.WriteLine(mpegs);
             SerializeMpegsToXmlFile(mpegs);
         }
 
@@ -105,45 +107,89 @@ namespace MPEGtest
             }
         }
 
-        public HashSet<Mpeg> DeserializeMpegsFromXmlFile()
-        {
-            XmlSerializer serializer = new XmlSerializer(typeof(HashSet<Mpeg>));
-            TextReader reader = new StreamReader(xmlPath);
-            HashSet<Mpeg> mpegsTemp = new HashSet<Mpeg>();
-            if (reader.Peek() != -1)
-                mpegsTemp = (HashSet<Mpeg>)serializer.Deserialize(reader);
-            reader.Close();
-            return mpegsTemp;
-        }
+
 
         public void SerializeMpegsToXmlFile(HashSet<Mpeg> mpegs)
         {
-            DeleteFileIfExists();
-            XmlSerializer serializer = new XmlSerializer(typeof(HashSet<Mpeg>));
-            TextWriter writer = new StreamWriter(xmlPath);
-
-            serializer.Serialize(writer, mpegs);
-            writer.Close();
-        }
-
-        private void DeleteFileIfExists()
-        {
-            if (File.Exists(xmlPath))         
-                File.Delete(xmlPath);
-        }
-
-        public HashSet<Mpeg> ConvertXElementsToMpegs(IEnumerable<XElement> elements)
-        {
-            XmlSerializer serializer = new XmlSerializer(typeof(Mpeg));
-            HashSet<Mpeg> result = new HashSet<Mpeg>();
-
-            foreach (var element in elements)
+            var mpegsInXml = new HashSet<XElement>();
+            foreach(var mpeg in mpegs)
             {
-                StringReader reader = new StringReader(element.ToString());
-                result.Add((Mpeg)serializer.Deserialize(reader));
+                mpegsInXml.Add(SerializeMpeg7(mpeg));
             }
-            return result;
+            var root = new XElement("Mpegs", mpegsInXml);
+            root.Save(xmlPath);
+        }
 
+        private XElement SerializeMpeg7(Mpeg mpeg)
+        {
+            return new XElement("Mpeg7",
+                                   new XElement("Event", mpeg.Evt),
+                                   new XElement("Concept", mpeg.Concept),
+                                   new XElement("Image", mpeg.Image),
+                                   new XElement("SpatialRelation", mpeg.SpatialRelation,
+                                       new XAttribute("Source", mpeg.SpatialRelationSource),
+                                       new XAttribute("Target", mpeg.SpatialRelationTarget)),
+                                   new XElement("TemporalRelation", mpeg.TemporalRelation,
+                                       new XAttribute("Source", mpeg.TemporalRelationSource),
+                                       new XAttribute("Target", mpeg.TemporalRelationTarget)),
+                                   new XElement("Relation", mpeg.Relation),
+                                   SerializeAgents(mpeg)
+                                   );
+        }
+        private XElement SerializeAgents(Mpeg mpeg)
+        {
+            var agents = new XElement("Agents");
+            foreach (var agent in mpeg.Agents)
+            {
+                agents.Add(SerializeAgent(agent));
+            }
+            return agents;
+        }
+        private XElement SerializeAgent(Agent agent)
+        {
+            return new XElement("Agent", agent.Name);
+        }
+
+        public HashSet<Mpeg> DeserializeMpegsFromXmlFile()
+        {
+            var elements = XElement.Parse(File.ReadAllText(xmlPath)).Elements("Mpeg7");
+            return DeserializeXmlElementsToMpegs(elements);
+        }
+
+        public HashSet<Mpeg> DeserializeXmlElementsToMpegs(IEnumerable<XElement> elements)
+        {
+            HashSet<Mpeg> mpegs = new HashSet<Mpeg>();
+            foreach (var mpegInXml in elements)
+            {
+                Mpeg mpeg = new Mpeg
+                {
+                    Agents = DeserializeAgentsFromXmlAgentsElement(mpegInXml.Element("Agents")),
+                    TemporalRelation = mpegInXml.Element("TemporalRelation").Value,
+                    TemporalRelationSource = mpegInXml.Element("TemporalRelation").Attribute("Source").Value,
+                    TemporalRelationTarget = mpegInXml.Element("TemporalRelation").Attribute("Target").Value,
+                    SpatialRelation = mpegInXml.Element("SpatialRelation").Value,
+                    SpatialRelationSource = mpegInXml.Element("SpatialRelation").Attribute("Source").Value,
+                    SpatialRelationTarget = mpegInXml.Element("SpatialRelation").Attribute("Target").Value,
+                    Image = mpegInXml.Element("Image").Value,
+                    Evt = mpegInXml.Element("Event").Value,
+                    Concept = mpegInXml.Element("Concept").Value,
+                    Relation = mpegInXml.Element("Relation").Value
+                };
+
+                mpegs.Add(mpeg);
+
+            }
+            return mpegs;
+
+        }
+        private HashSet<Agent> DeserializeAgentsFromXmlAgentsElement(XElement element)
+        {
+            var agents = new HashSet<Agent>();
+            foreach (var agnt in element.Elements("Agent"))
+            {
+                agents.Add(new Agent(agnt.Value));
+            }
+            return agents;
         }
 
         public Image GetImageFromBase64(string base64Image)

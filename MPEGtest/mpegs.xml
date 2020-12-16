@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mpegs>
+  <Mpeg7>
+    <Event>testevent</Event>
+    <Concept>testconcept</Concept>
+    <Image>testimage</Image>
+    <SpatialRelation Source="source test" Target="target test">Spatialrelationtest</SpatialRelation>
+    <TemporalRelation Source="source test" Target="target test">temporalrelationtest</TemporalRelation>
+    <Relation>relation test</Relation>
+    <Agents>
+      <Agent>agent name</Agent>
+      <Agent>agent2 name</Agent>
+    </Agents>
+  </Mpeg7>
+</Mpegs>

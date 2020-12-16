@@ -32,9 +32,9 @@ namespace MPEGtest
         {
             return new ServiceCollection()
                 .AddLogging()
-                .AddSingleton<IWelcomeView, WelcomeView>()
-                .AddSingleton<ISearchImageView, SearchImageView>()
-                .AddSingleton<IUploadImageView, UploadImageView>()
+                .AddTransient<IWelcomeView, WelcomeView>()
+                .AddTransient<ISearchImageView, SearchImageView>()
+                .AddTransient<IUploadImageView, UploadImageView>()
                 .AddTransient<IImageFilterView, ImageFiltersView>()
                 .AddSingleton<IImageHandler, ImageHandler>()
                 .AddTransient<ISliderForm, SliderForm>()
