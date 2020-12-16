@@ -48,8 +48,13 @@
             this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
-            this.imagePanel = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // button2
@@ -77,7 +82,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(408, 183);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 13);
+            this.label1.Size = new System.Drawing.Size(52, 15);
             this.label1.TabIndex = 4;
             this.label1.Text = "Concept";
             // 
@@ -86,7 +91,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(408, 220);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(36, 15);
             this.label2.TabIndex = 5;
             this.label2.Text = "Event";
             // 
@@ -95,54 +100,54 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(408, 260);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(34, 13);
+            this.label3.Size = new System.Drawing.Size(88, 15);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Place";
+            this.label3.Text = "Spatial Realtion";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(408, 301);
+            this.label4.Location = new System.Drawing.Point(396, 301);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(30, 13);
+            this.label4.Size = new System.Drawing.Size(102, 15);
             this.label4.TabIndex = 7;
-            this.label4.Text = "Time";
+            this.label4.Text = "Temporal Relation";
             // 
             // ConceptTxt
             // 
             this.ConceptTxt.Location = new System.Drawing.Point(504, 183);
             this.ConceptTxt.Name = "ConceptTxt";
-            this.ConceptTxt.Size = new System.Drawing.Size(134, 20);
+            this.ConceptTxt.Size = new System.Drawing.Size(172, 23);
             this.ConceptTxt.TabIndex = 8;
             // 
             // EventTxt
             // 
             this.EventTxt.Location = new System.Drawing.Point(504, 217);
             this.EventTxt.Name = "EventTxt";
-            this.EventTxt.Size = new System.Drawing.Size(134, 20);
+            this.EventTxt.Size = new System.Drawing.Size(172, 23);
             this.EventTxt.TabIndex = 9;
             // 
             // PlaceTxt
             // 
             this.PlaceTxt.Location = new System.Drawing.Point(504, 252);
             this.PlaceTxt.Name = "PlaceTxt";
-            this.PlaceTxt.Size = new System.Drawing.Size(134, 20);
+            this.PlaceTxt.Size = new System.Drawing.Size(52, 23);
             this.PlaceTxt.TabIndex = 10;
             // 
             // TimeTxt
             // 
             this.TimeTxt.Location = new System.Drawing.Point(504, 293);
             this.TimeTxt.Name = "TimeTxt";
-            this.TimeTxt.Size = new System.Drawing.Size(134, 20);
+            this.TimeTxt.Size = new System.Drawing.Size(52, 23);
             this.TimeTxt.TabIndex = 11;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int) (((byte) (128)))), ((int) (((byte) (128)))), ((int) (((byte) (255)))));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.label6.Location = new System.Drawing.Point(408, 140);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(230, 13);
+            this.label6.Size = new System.Drawing.Size(261, 15);
             this.label6.TabIndex = 13;
             this.label6.Text = "Insert All The information for the selected image";
             // 
@@ -160,7 +165,7 @@
             // 
             this.AgentTxt.Location = new System.Drawing.Point(504, 337);
             this.AgentTxt.Name = "AgentTxt";
-            this.AgentTxt.Size = new System.Drawing.Size(134, 20);
+            this.AgentTxt.Size = new System.Drawing.Size(172, 23);
             this.AgentTxt.TabIndex = 18;
             // 
             // label9
@@ -168,7 +173,7 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(408, 345);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(35, 13);
+            this.label9.Size = new System.Drawing.Size(39, 15);
             this.label9.TabIndex = 19;
             this.label9.Text = "Agent";
             // 
@@ -176,7 +181,7 @@
             // 
             this.RelationTxt.Location = new System.Drawing.Point(504, 375);
             this.RelationTxt.Name = "RelationTxt";
-            this.RelationTxt.Size = new System.Drawing.Size(134, 20);
+            this.RelationTxt.Size = new System.Drawing.Size(172, 23);
             this.RelationTxt.TabIndex = 20;
             // 
             // label10
@@ -184,7 +189,7 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(407, 381);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(46, 13);
+            this.label10.Size = new System.Drawing.Size(50, 15);
             this.label10.TabIndex = 21;
             this.label10.Text = "Relation";
             // 
@@ -201,7 +206,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.Navy;
             this.label5.Location = new System.Drawing.Point(183, 28);
             this.label5.Name = "label5";
@@ -229,18 +234,51 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.OpenFiltersButtonClick);
             // 
-            // imagePanel
+            // pictureBox1
             // 
-            this.imagePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.imagePanel.Location = new System.Drawing.Point(25, 140);
-            this.imagePanel.Name = "imagePanel";
-            this.imagePanel.Size = new System.Drawing.Size(293, 242);
-            this.imagePanel.TabIndex = 25;
+            this.pictureBox1.Location = new System.Drawing.Point(36, 164);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(268, 211);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 24;
+            this.pictureBox1.TabStop = false;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(563, 252);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(60, 23);
+            this.textBox1.TabIndex = 8;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(629, 252);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(47, 23);
+            this.textBox2.TabIndex = 8;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(563, 293);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(60, 23);
+            this.textBox3.TabIndex = 18;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(629, 293);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(51, 23);
+            this.textBox4.TabIndex = 18;
             // 
             // UploadImageView
             // 
-            this.ClientSize = new System.Drawing.Size(732, 544);
-            this.Controls.Add(this.imagePanel);
+            this.ClientSize = new System.Drawing.Size(1002, 544);
+            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.label10);
@@ -266,11 +304,11 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-        }
 
-        private System.Windows.Forms.Panel imagePanel;
+        }
 
         private System.Windows.Forms.Button button5;
 
@@ -295,6 +333,11 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox RelationTxt;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox4;
     }
 }
 
