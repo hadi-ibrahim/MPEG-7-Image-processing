@@ -91,7 +91,7 @@ namespace MPEGtest.Views
 
         public void ReceiveImageUpdates(Bitmap image)
         {
-           pictureBox1.BackgroundImage = image;
+           imagePanel.BackgroundImage = image;
            // Console.WriteLine("Image Updated");
         }
 

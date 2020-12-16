@@ -21,7 +21,6 @@ namespace MPEGtest
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            // Application.Run(new UploadImageView());
             var serviceProvider = ConfigureServices();
             RoutingHelper.ServiceProvider = serviceProvider;
             Application.Run(serviceProvider.GetService<IWelcomeView>() as Form);

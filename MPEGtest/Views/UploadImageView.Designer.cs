@@ -81,7 +81,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(366, 184);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 15);
+            this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 4;
             this.label1.Text = "Concept";
             // 
@@ -90,7 +90,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(366, 221);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(36, 15);
+            this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 5;
             this.label2.Text = "Event";
             // 
@@ -99,7 +99,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(366, 261);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 15);
+            this.label3.Size = new System.Drawing.Size(81, 13);
             this.label3.TabIndex = 6;
             this.label3.Text = "Spatial Relation";
             // 
@@ -108,7 +108,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(366, 297);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(102, 15);
+            this.label4.Size = new System.Drawing.Size(93, 13);
             this.label4.TabIndex = 7;
             this.label4.Text = "Temporal Relation";
             // 
@@ -116,43 +116,43 @@
             // 
             this.ConceptTxt.Location = new System.Drawing.Point(477, 184);
             this.ConceptTxt.Name = "ConceptTxt";
-            this.ConceptTxt.Size = new System.Drawing.Size(176, 23);
+            this.ConceptTxt.Size = new System.Drawing.Size(176, 20);
             this.ConceptTxt.TabIndex = 8;
             // 
             // EventTxt
             // 
             this.EventTxt.Location = new System.Drawing.Point(477, 218);
             this.EventTxt.Name = "EventTxt";
-            this.EventTxt.Size = new System.Drawing.Size(176, 23);
+            this.EventTxt.Size = new System.Drawing.Size(176, 20);
             this.EventTxt.TabIndex = 9;
             // 
             // SpatialRelationSourceTxt
             // 
             this.SpatialRelationSourceTxt.Location = new System.Drawing.Point(477, 253);
             this.SpatialRelationSourceTxt.Name = "SpatialRelationSourceTxt";
-            this.SpatialRelationSourceTxt.Size = new System.Drawing.Size(52, 23);
+            this.SpatialRelationSourceTxt.Size = new System.Drawing.Size(52, 20);
             this.SpatialRelationSourceTxt.TabIndex = 10;
             // 
             // TemporalRelationSourceTxt
             // 
             this.TemporalRelationSourceTxt.Location = new System.Drawing.Point(477, 294);
             this.TemporalRelationSourceTxt.Name = "TemporalRelationSourceTxt";
-            this.TemporalRelationSourceTxt.Size = new System.Drawing.Size(52, 23);
+            this.TemporalRelationSourceTxt.Size = new System.Drawing.Size(52, 20);
             this.TemporalRelationSourceTxt.TabIndex = 11;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int) (((byte) (128)))), ((int) (((byte) (128)))), ((int) (((byte) (255)))));
             this.label6.Location = new System.Drawing.Point(366, 141);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(261, 15);
+            this.label6.Size = new System.Drawing.Size(230, 13);
             this.label6.TabIndex = 13;
             this.label6.Text = "Insert All The information for the selected image";
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(462, 420);
+            this.button3.Location = new System.Drawing.Point(496, 420);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(134, 30);
             this.button3.TabIndex = 14;
@@ -164,7 +164,7 @@
             // 
             this.AgentTxt.Location = new System.Drawing.Point(477, 338);
             this.AgentTxt.Name = "AgentTxt";
-            this.AgentTxt.Size = new System.Drawing.Size(176, 23);
+            this.AgentTxt.Size = new System.Drawing.Size(176, 20);
             this.AgentTxt.TabIndex = 18;
             // 
             // label9
@@ -172,7 +172,7 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(366, 338);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(39, 15);
+            this.label9.Size = new System.Drawing.Size(35, 13);
             this.label9.TabIndex = 19;
             this.label9.Text = "Agent";
             // 
@@ -180,7 +180,7 @@
             // 
             this.RelationTxt.Location = new System.Drawing.Point(477, 376);
             this.RelationTxt.Name = "RelationTxt";
-            this.RelationTxt.Size = new System.Drawing.Size(176, 23);
+            this.RelationTxt.Size = new System.Drawing.Size(176, 20);
             this.RelationTxt.TabIndex = 20;
             // 
             // label10
@@ -188,7 +188,7 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(365, 382);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(50, 15);
+            this.label10.Size = new System.Drawing.Size(46, 13);
             this.label10.TabIndex = 21;
             this.label10.Text = "Relation";
             // 
@@ -205,7 +205,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F);
             this.label5.ForeColor = System.Drawing.Color.Navy;
             this.label5.Location = new System.Drawing.Point(183, 28);
             this.label5.Name = "label5";
@@ -245,23 +245,29 @@
             // 
             this.SpatialRelationTxt.Location = new System.Drawing.Point(535, 253);
             this.SpatialRelationTxt.Name = "SpatialRelationTxt";
-            this.SpatialRelationTxt.Size = new System.Drawing.Size(61, 23);
+            this.SpatialRelationTxt.Size = new System.Drawing.Size(61, 20);
             this.SpatialRelationTxt.TabIndex = 8;
             // 
             // SpatialRelationTargetTxt
             // 
             this.SpatialRelationTargetTxt.Location = new System.Drawing.Point(602, 253);
             this.SpatialRelationTargetTxt.Name = "SpatialRelationTargetTxt";
-            this.SpatialRelationTargetTxt.Size = new System.Drawing.Size(51, 23);
+            this.SpatialRelationTargetTxt.Size = new System.Drawing.Size(51, 20);
             this.SpatialRelationTargetTxt.TabIndex = 8;
             // 
             // TemporalRelationTxt
             // 
             this.TemporalRelationTxt.Location = new System.Drawing.Point(536, 294);
             this.TemporalRelationTxt.Name = "TemporalRelationTxt";
-            this.TemporalRelationTxt.Size = new System.Drawing.Size(60, 23);
+            this.TemporalRelationTxt.Size = new System.Drawing.Size(60, 20);
             this.TemporalRelationTxt.TabIndex = 18;
-            
+            // 
+            // TemporalRelationTargetTxt
+            // 
+            this.TemporalRelationTargetTxt.Location = new System.Drawing.Point(602, 294);
+            this.TemporalRelationTargetTxt.Name = "TemporalRelationTargetTxt";
+            this.TemporalRelationTargetTxt.Size = new System.Drawing.Size(51, 20);
+            this.TemporalRelationTargetTxt.TabIndex = 0;
             // 
             // UploadImageView
             // 
@@ -298,6 +304,7 @@
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
+        }
 
         private System.Windows.Forms.Panel imagePanel;
 
