@@ -76,7 +76,7 @@ namespace MPEGtest.Views
             var inputView = RoutingHelper.OpenDialogView<ISliderForm>();
             if (inputView.DialogResult != DialogResult.OK) return;
             var config = inputView.OutputValue;
-            new Thread(() => { _imageHandler.UpdateImage(_imageHandler.GetBitmapImage().ApplyGaussianFilter(config)); })
+            new Thread(() => { _imageHandler.UpdateImage(_imageHandler.GetBitmapImage().ApplyMedianFilter(config)); })
                 .Start();
             inputView.Dispose();
         }
