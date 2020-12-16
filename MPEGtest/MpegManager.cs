@@ -23,7 +23,7 @@ namespace MPEGtest
         public HashSet<Mpeg> QueryImages(Mpeg criteriaMpeg)
         {
             XElement doc = XElement.Load(xmlPath);
-            var matches = FilterAllCrtieria(doc.Elements("Mpeg"), criteriaMpeg);
+            var matches = FilterAllCrtieria(doc.Elements("Mpeg7"), criteriaMpeg);
             HashSet<Mpeg> result = DeserializeXmlElementsToMpegs(matches);
 
             return result;
